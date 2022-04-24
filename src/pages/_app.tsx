@@ -1,8 +1,19 @@
 import '@@/styles/globals.css';
-import type { AppProps } from 'next/app'
+import { AppPropsWithLayout } from '@/types/common';
+import { createEmotionCache } from '@/helpers/emotionCachedHelper';
+import { CacheProvider } from '@emotion/react';
 
-function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+const clientSideEmotionCache = createEmotionCache();
+
+function MyApp({ Component, pageProps, emotionCache = clientSideEmotionCache }: AppPropsWithLayout) {
+  const Layout = Component.Layout;
+  return (
+    <CacheProvider value={emotionCache}>
+      <Layout>
+        <Component> {...pageProps}</Component>
+      </Layout>
+    </CacheProvider>
+  );
 }
 
-export default MyApp
+export default MyApp;

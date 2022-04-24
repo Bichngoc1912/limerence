@@ -7,8 +7,8 @@ const httpClient = axios.create({
   timeout: 30000,
   headers: {
     [HTTP_HEADER_KEY.CONTENT_TYPE]: HTTP_HEADER_VALUE.APPLICATION_JSON,
-  }
-})
+  },
+});
 
 export function getHttpClient() {
   return httpClient;

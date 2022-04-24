@@ -16,18 +16,20 @@ import { getArticleList } from '@/services/api/getArticleList';
 function HomePage(props: any) {
   useEffect(() => {
     getArticleList()
-      .then(res => {
-        console.log("res...", res);
+      .then((res) => {
+        console.log('res...', res);
       })
-      .catch(err => {
-        console.log("err...", err)
-      })
-  }, [])
+      .catch((err) => {
+        console.log('err...', err);
+      });
+  }, []);
 
-  return <div className='flex'>
-    <div>a</div>
-    <div>b</div>
-  </div>
+  return (
+    <div className="flex">
+      <div>a</div>
+      <div>b</div>
+    </div>
+  );
 }
 
 export default HomePage;
