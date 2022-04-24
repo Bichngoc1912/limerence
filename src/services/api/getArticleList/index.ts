@@ -1,4 +1,3 @@
-import { ApiResponseInterface } from '@/types/http/api';
 import { getHttpClient } from "@/helpers/httpClient";
 
 const BASE_URL = 'api/queryDatabase';

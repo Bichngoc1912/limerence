@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { getArticleList } from '@/services/api/queryDatabase';
+import { getArticleList } from '@/services/api/getArticleList';
 
 // export async function getServerSideProps() {
 //   const resp = await getArticleList();
@@ -24,7 +24,10 @@ function HomePage(props: any) {
       })
   }, [])
 
-  return <div>home page ne</div>
+  return <div className='flex'>
+    <div>a</div>
+    <div>b</div>
+  </div>
 }
 
 export default HomePage;

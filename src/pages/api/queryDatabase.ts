@@ -7,5 +7,10 @@ export async function queryDatabase(): Promise<any> {
   const httpServer = await getHttpServer();
 
   const resp = await httpServer.post(API_URL)
-  return resp.data;
+  try {
+    return resp.data;
+  } catch(err) {
+    console.log("err catch...", err)
+    return err;
+  }
 }
