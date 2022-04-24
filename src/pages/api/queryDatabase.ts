@@ -1,16 +1,18 @@
 import { getHttpServer } from "@/helpers/httpServer";
 import { APP_CONFIGS } from "@/configs/app";
+import type { NextApiRequest, NextApiResponse } from 'next'
 
 const API_URL = `databases/${APP_CONFIGS.DATABASE_ID}/query`
 
-export async function queryDatabase(): Promise<any> {
+export default async function queryDatabase(req: NextApiRequest,
+  res: NextApiResponse<any>): Promise<any> {
   const httpServer = await getHttpServer();
 
   const resp = await httpServer.post(API_URL)
   try {
-    return resp.data;
+    return res.status(200).json(resp.data);
   } catch(err) {
     console.log("err catch...", err)
-    return err;
+    return Promise.reject(err);
   }
 }
