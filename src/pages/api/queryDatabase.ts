@@ -14,6 +14,6 @@ export default async function queryDatabase(
   try {
     return res.status(200).json(resp.data);
   } catch (err) {
-    return res.status(500).json(err)
+    return res.status(500).json(err);
   }
 }
