@@ -1,4 +1,4 @@
-import '@@/styles/globals.css';
+import '@/styles/globals.css';
 import { AppPropsWithLayout } from '@/types/common';
 import { createEmotionCache } from '@/helpers/emotionCachedHelper';
 
