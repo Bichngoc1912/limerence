@@ -1,57 +1,58 @@
 import React from 'react';
 import { useMemo } from 'react';
-import Link from 'next/link'
+import Link from 'next/link';
 
 const menuHeaderList = [
   {
     id: 0,
     name: 'Home',
-    href: '#'
+    href: '#',
   },
   {
     id: 1,
     name: 'About',
-    href: '#'
+    href: '#',
   },
   {
     id: 2,
     name: 'Dev',
-    href: '#'
+    href: '#',
   },
   {
     id: 3,
     name: 'Book',
-    href: '#'
+    href: '#',
   },
   {
     id: 4,
     name: 'Chore',
-    href: '#'
+    href: '#',
   },
-]
+];
 
 function Header() {
   const menuList = useMemo(() => {
     return menuHeaderList;
-  }, [])
+  }, []);
 
-  const renderMenuList = menuList.map(item => {
+  const renderMenuList = menuList.map((item) => {
     return (
-      <div key={item.id} className="pl-1 pr-1 text-sm md:text-base md:pl-4 md:pr-4 text-gray-900">
+      <div
+        key={item.id}
+        className="pl-1 pr-1 text-sm md:text-base md:pl-4 md:pr-4 text-gray-900"
+      >
         <Link href={item.href}>
           <a>{item.name}</a>
         </Link>
       </div>
-    )
-  })
+    );
+  });
 
   return (
     <div className="h-16  w-full bg-gray-100 flex justify-center items-center">
-      <div className='max-w-4xl pl-2 pr-2 w-full my-0 mx-auto flex justify-between items-center'>
-        <div className='font-[ms-madi] text-lg  text-blue-500'>Limerence</div>
-        <div className='flex justify-between items-center'>
-          {renderMenuList}
-        </div>
+      <div className="max-w-4xl pl-2 pr-2 w-full my-0 mx-auto flex justify-between items-center">
+        <div className="font-[ms-madi] text-lg  text-blue-500">Limerence</div>
+        <div className="flex justify-between items-center">{renderMenuList}</div>
       </div>
     </div>
   );

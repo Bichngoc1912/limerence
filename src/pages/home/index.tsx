@@ -15,16 +15,6 @@ import MainLayout from '@/components/layout/MainLayout';
 // }
 
 function HomePage(props: any) {
-  useEffect(() => {
-    getArticleList()
-      .then((res) => {
-        console.log('res...', res);
-      })
-      .catch((err) => {
-        console.log('err...', err);
-      });
-  }, []);
-
   return (
     <div className="flex ">
       <div>a</div>

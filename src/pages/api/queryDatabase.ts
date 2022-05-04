@@ -10,7 +10,7 @@ export default async function queryDatabase(
 ): Promise<any> {
   const httpServer = await getHttpServer();
 
-  const resp = await httpServer.post(API_URL);
+  const resp = await httpServer.post(API_URL, req.body);
   try {
     return res.status(200).json(resp.data);
   } catch (err) {
