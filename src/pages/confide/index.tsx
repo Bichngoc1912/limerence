@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { getArticleList } from '@/services/api/getArticleList';
-import MainLayout from '@/components/layout/MainLayout';
+import MainLayout from '@/components/Layout/MainLayout';
 
 // export async function getServerSideProps() {
 //   const resp = await getArticleList();
@@ -17,8 +17,7 @@ import MainLayout from '@/components/layout/MainLayout';
 function HomePage(props: any) {
   return (
     <div className="flex ">
-      <div>a</div>
-      <div>b</div>
+      confide index
     </div>
   );
 }

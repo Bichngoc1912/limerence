@@ -1,6 +1,7 @@
 import React from 'react';
-import Header from '@/components/header';
+import Header from '@/components/Header';
 import { LayoutPropsInterface } from './types';
+import Footer from '../Footer';
 
 export function getStaticProps() {
   return {
@@ -10,9 +11,9 @@ export function getStaticProps() {
 
 export default function HomeLayout({ children }: LayoutPropsInterface) {
   return (
-    <div className="bg-gray-50 h-screen font-serif">
+    <div className="bg-gray-50 font-serif">
       <Header />
-      <div className="w-full h-96 md:h-3/4 mb-4">
+      <div className="w-full h-screen mb-4">
         <div className="bg-[url('../../src/assets/images/bau-troi.jpg')] bg-no-repeat items-center w-full h-full bg-cover flex">
           <div className="text-center text-sm md:text-base p-4 lg:w-2/4">
             <span>
@@ -25,6 +26,7 @@ export default function HomeLayout({ children }: LayoutPropsInterface) {
       <div className=" bg-gray-50">
         <div className="max-w-4xl my-0 mx-auto">{children}</div>
       </div>
+      <Footer />
     </div>
   );
 }
