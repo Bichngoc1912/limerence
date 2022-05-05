@@ -3,7 +3,7 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 
 const generateApiUrl = (param: string) => {
   return `/blocks/${param}/children?page_size=100`;
-}
+};
 
 export default async function retrieveBlockChildren(
   req: NextApiRequest,

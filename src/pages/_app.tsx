@@ -8,17 +8,17 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
 
   return (
     <>
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
 
-    <NextNProgress
-      height={2}
-      color="#f57c27"
-      options={{
-        showSpinner: true,
-      }}
-    />
+      <NextNProgress
+        height={2}
+        color="#f57c27"
+        options={{
+          showSpinner: true,
+        }}
+      />
     </>
   );
 }

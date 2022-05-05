@@ -39,7 +39,7 @@ interface ResultInterface {
   paragraph: {
     rich_text: RichTextInterface[];
     color: string;
-  }
+  };
 }
 export interface GetContentPageResponseInterface {
   object: string;

@@ -15,11 +15,7 @@ import MainLayout from '@/components/Layout/MainLayout';
 // }
 
 function AboutPage(props: any) {
-  return (
-    <div className="flex ">
-      about page
-    </div>
-  );
+  return <div className="flex ">about page</div>;
 }
 
 AboutPage.Layout = MainLayout;

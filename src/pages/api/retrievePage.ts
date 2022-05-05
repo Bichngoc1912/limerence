@@ -3,7 +3,7 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 
 const generateApiUrl = (param: string) => {
   return `/pages/${param}`;
-}
+};
 
 export default async function retrievePage(
   req: NextApiRequest,

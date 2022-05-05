@@ -5,8 +5,8 @@ import Footer from '../Footer';
 
 export function getStaticProps() {
   return {
-    props: {}
-  }
+    props: {},
+  };
 }
 
 export default function HomeLayout({ children }: LayoutPropsInterface) {

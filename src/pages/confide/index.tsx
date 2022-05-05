@@ -15,11 +15,7 @@ import MainLayout from '@/components/Layout/MainLayout';
 // }
 
 function HomePage(props: any) {
-  return (
-    <div className="flex ">
-      confide index
-    </div>
-  );
+  return <div className="flex ">confide index</div>;
 }
 
 HomePage.Layout = MainLayout;

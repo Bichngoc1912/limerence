@@ -3,7 +3,9 @@ import { GetContentPageRequestInterface, GetContentPageResponseInterface } from 
 
 const BASE_URL = 'retrieveBlockChildren';
 
-export async function getContentPage(req: GetContentPageRequestInterface): Promise<GetContentPageResponseInterface> {
+export async function getContentPage(
+  req: GetContentPageRequestInterface,
+): Promise<GetContentPageResponseInterface> {
   const httpClient = await getHttpClient();
   const resp = await httpClient.get(BASE_URL, { params: req });
 

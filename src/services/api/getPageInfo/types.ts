@@ -4,20 +4,20 @@ export interface GetPageInfoRequestInterface {
 
 interface RichTextInterface {
   type: string;
-    text: {
-      content: string;
-      link: string;
-    };
-    annotations: {
-      bold: boolean,
-      italic: boolean,
-      strikethrough: boolean,
-      underline: boolean,
-      code: boolean,
-      color: string;
-    };
-    plain_text: string;
-    href: string;
+  text: {
+    content: string;
+    link: string;
+  };
+  annotations: {
+    bold: boolean;
+    italic: boolean;
+    strikethrough: boolean;
+    underline: boolean;
+    code: boolean;
+    color: string;
+  };
+  plain_text: string;
+  href: string;
 }
 
 interface MultiSelectInterface {
@@ -51,7 +51,7 @@ export interface GetPageInfoResponseInterface {
       id: string;
       type: string;
       url: string;
-    },
+    };
     title: {
       id: string;
       type: string;
@@ -81,12 +81,12 @@ export interface GetPageInfoResponseInterface {
       id: string;
       type: string;
       created_time: string;
-    },
+    };
     article: {
       id: string;
       type: string;
       title: RichTextInterface[];
-    }
+    };
   };
   url: string;
 }

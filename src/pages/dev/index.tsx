@@ -1,7 +1,7 @@
-import MainLayout from "@/components/Layout/MainLayout";
+import MainLayout from '@/components/Layout/MainLayout';
 
 function DevPage() {
-  return <div>dev page</div>
+  return <div>dev page</div>;
 }
 
 DevPage.Layout = MainLayout;

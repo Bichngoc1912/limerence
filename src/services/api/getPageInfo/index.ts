@@ -3,7 +3,9 @@ import { GetPageInfoResponseInterface, GetPageInfoRequestInterface } from './typ
 
 const BASE_URL = 'retrievePage';
 
-export async function getPageInfo(req: GetPageInfoRequestInterface): Promise<GetPageInfoResponseInterface> {
+export async function getPageInfo(
+  req: GetPageInfoRequestInterface,
+): Promise<GetPageInfoResponseInterface> {
   const httpClient = await getHttpClient();
   const resp = await httpClient.get(BASE_URL, { params: req });
 

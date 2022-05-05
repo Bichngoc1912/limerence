@@ -1,7 +1,7 @@
-import MainLayout from "@/components/Layout/MainLayout";
+import MainLayout from '@/components/Layout/MainLayout';
 
 function BookPage() {
-  return <div>book page</div>
+  return <div>book page</div>;
 }
 
 BookPage.Layout = MainLayout;

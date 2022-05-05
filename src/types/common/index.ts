@@ -33,7 +33,7 @@ interface RichTextInterface {
     content: string;
     link: string;
   };
-  type: string
+  type: string;
 }
 export interface PropertiesInterface {
   article: {
@@ -79,7 +79,7 @@ export interface PropertiesInterface {
     id: string;
     rich_text: RichTextInterface[];
     type: string;
-  }
+  };
   url: string;
 }
 export interface ArticleItemInterface {

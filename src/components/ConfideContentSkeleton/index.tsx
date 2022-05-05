@@ -10,7 +10,7 @@ function ConfideContentSkeleton() {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 export default ConfideContentSkeleton;
