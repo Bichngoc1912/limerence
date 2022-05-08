@@ -31,10 +31,8 @@ function HomePage(props: any) {
     return router.push(`/confide/${id}`);
   };
 
-  console.log(props)
   return (
     <div>
-      ...
       <BlogCard data={props} onClick={handleClickViewDetailPageItem} />
     </div>
   );
