@@ -6,7 +6,7 @@ import { APP_CONFIGS } from '@/configs/app';
 function DevPage() {
   return (
     <div className="p-4">
-      <div className="flex py-4">
+      <div className=" block md:flex py-4">
         <div style={{ width: '100%', height: 400 }} className="relative">
           <Image
             layout="fill"
