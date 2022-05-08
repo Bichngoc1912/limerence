@@ -28,7 +28,7 @@ function BookPage(props: any) {
   const data = props as ArticleListInterface;
 
   return (
-    <div className="grid gap-4 justify-items-center grid-cols-2 mt-8 mb-4">
+    <div className="grid gap-4 justify-items-center md:grid-cols-2 grid-cols-1 mt-8 mb-4">
       {data?.results?.map((item, idx) => {
         return <BookCard key={idx} data={item} />;
       })}
