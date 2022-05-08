@@ -4,7 +4,7 @@ import { getArticleList } from '@/services/api/getArticleList';
 import { getPageInfo } from '@/services/api/getPageInfo';
 import { useRouter } from 'next/router';
 
-export async function getStaticProps() {
+async function getStaticProps() {
   const reqParam = {
     filter: {
       and: [
@@ -26,7 +26,7 @@ export async function getStaticProps() {
   };
 }
 
-export function HomePage(props: any) {
+function HomePage(props: any) {
   const router = useRouter();
 
   const handleClickViewDetailPageItem = (id: string) => {

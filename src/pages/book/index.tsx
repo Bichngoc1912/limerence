@@ -3,7 +3,7 @@ import BookCard from '@/components/cards/BookCard';
 import { getArticleList } from '@/services/api/getArticleList';
 import { ArticleListInterface } from '@/types/common';
 
-export async function getStaticProps() {
+async function getStaticProps() {
   const reqParam = {
     filter: {
       and: [
