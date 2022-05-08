@@ -3,6 +3,11 @@ import Image from 'next/image';
 import codingImg from '@/assets/images/coding.jpeg';
 import { APP_CONFIGS } from '@/configs/app';
 
+export async function getServerSideProps(){
+  return {
+    props: {},
+  }
+}
 function DevPage() {
   return (
     <div className="p-4">

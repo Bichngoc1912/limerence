@@ -2,12 +2,13 @@ import '@/styles/globals.css';
 import { AppPropsWithLayout } from '@/types/common';
 import { createEmotionCache } from '@/helpers/emotionCachedHelper';
 import NextNProgress from 'nextjs-progressbar';
+import EmptyLayout from '@/components/Layout/EmptyLayout';
 
 function MyApp({ Component, pageProps }: AppPropsWithLayout) {
-  const Layout = Component.Layout;
-
+  const Layout = Component.Layout ?? EmptyLayout;
+  
   return (
-    <>
+    <div>
       <Layout>
         <Component {...pageProps} />
       </Layout>
@@ -19,7 +20,7 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
           showSpinner: true,
         }}
       />
-    </>
+    </div>
   );
 }
 

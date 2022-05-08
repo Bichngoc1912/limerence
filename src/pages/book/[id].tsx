@@ -11,7 +11,7 @@ import Image from 'next/image';
 import dayjs from 'dayjs';
 import { APP_CONFIGS } from '@/configs/app';
 
-async function getServerSideProps() {
+export async function getServerSideProps() {
   return {
     props: {},
   };
@@ -109,7 +109,7 @@ function BookDetailPage() {
       <div>
         {paragraph?.results?.map((item, idx) => {
           return (
-            <React.Fragment key={idx}>
+            <div key={idx}>
               {item?.type === 'image' ? (
                 <div style={{ width: '100%', height: 420 }} className="relative">
                   <Image
@@ -131,7 +131,7 @@ function BookDetailPage() {
                   </p>
                 </div>
               )}
-            </React.Fragment>
+            </div>
           );
         })}
       </div>

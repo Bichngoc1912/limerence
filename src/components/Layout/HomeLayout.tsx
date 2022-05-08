@@ -3,7 +3,7 @@ import Header from '@/components/Header';
 import { LayoutPropsInterface } from './types';
 import Footer from '../Footer';
 
-export function getStaticProps() {
+export async function getServerSideProps() {
   return {
     props: {},
   };

@@ -3,7 +3,7 @@ import aboutImg from '@/assets/images/avatar.jpg';
 import MainLayout from '@/components/Layout/MainLayout';
 import { APP_CONFIGS } from '@/configs/app';
 
-export async function getStaticSideProps() {
+export async function getServerSideProps() {
   return {
     props: {}
   }

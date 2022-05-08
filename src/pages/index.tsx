@@ -1,10 +1,9 @@
 import HomeLayout from '@/components/Layout/HomeLayout';
 import BlogCard from '@/components/cards/BlogCard';
 import { getArticleList } from '@/services/api/getArticleList';
-import { getPageInfo } from '@/services/api/getPageInfo';
 import { useRouter } from 'next/router';
 
-async function getStaticProps() {
+export async function getServerSideProps(){
   const reqParam = {
     filter: {
       and: [
@@ -18,10 +17,9 @@ async function getStaticProps() {
     },
   };
 
-  const resp = await getArticleList(reqParam);
   return {
     props: {
-      data: JSON.stringify(resp),
+      ...(await getArticleList(reqParam))
     },
   };
 }
@@ -33,9 +31,11 @@ function HomePage(props: any) {
     return router.push(`/confide/${id}`);
   };
 
+  console.log(props)
   return (
     <div>
-      <BlogCard data={JSON.parse(props.data)} onClick={handleClickViewDetailPageItem} />
+      ...
+      <BlogCard data={props} onClick={handleClickViewDetailPageItem} />
     </div>
   );
 }

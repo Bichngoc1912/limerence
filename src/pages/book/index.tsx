@@ -3,7 +3,7 @@ import BookCard from '@/components/cards/BookCard';
 import { getArticleList } from '@/services/api/getArticleList';
 import { ArticleListInterface } from '@/types/common';
 
-async function getStaticProps() {
+export async function getServerSideProps() {
   const reqParam = {
     filter: {
       and: [
@@ -17,21 +17,19 @@ async function getStaticProps() {
     },
   };
 
-  const resp = await getArticleList(reqParam);
   return {
     props: {
-      data: JSON.stringify(resp),
+      ...(await getArticleList(reqParam))
     },
   };
 }
 
 function BookPage(props: any) {
-  const { data } = props;
-  const dataConvert = JSON.parse(data) as ArticleListInterface;
+  const data = props as ArticleListInterface;
 
   return (
     <div className="grid gap-4 justify-items-center grid-cols-2 mt-8 mb-4">
-      {dataConvert?.results?.map((item, idx) => {
+      {data?.results?.map((item, idx) => {
         return <BookCard key={idx} data={item} />;
       })}
     </div>

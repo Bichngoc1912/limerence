@@ -1,5 +1,8 @@
 ## CHANGELOG
 
+
+## 08/05/2022
+- [bug] undefined component with  404 && 500 page
 ## 24/04/2022
 
 - [feature] Add tailwincss, setup layout

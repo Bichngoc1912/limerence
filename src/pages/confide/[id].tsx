@@ -8,7 +8,7 @@ import MainLayout from '@/components/Layout/MainLayout';
 import ConfideContentSkeleton from '@/components/ConfideContentSkeleton';
 import dayjs from 'dayjs';
 
-export function getServerSideProps() {
+export async function getServerSideProps() {
   return {
     props: {},
   };
@@ -121,5 +121,4 @@ function ConfidePage(props: any) {
 }
 
 ConfidePage.Layout = MainLayout;
-
 export default ConfidePage;

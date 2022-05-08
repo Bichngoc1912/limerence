@@ -51,7 +51,7 @@ function BookCard(props: BookCardPropsInterface) {
               <span
                 key={item.id}
                 style={{ color: item.color }}
-                className="text-sm overflow-hidden break-words"
+                className="text-sm overflow-hidden break-words "
               >
                 {item.name}{' '}
               </span>

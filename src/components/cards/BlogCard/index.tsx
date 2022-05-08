@@ -40,7 +40,7 @@ export function BlogCard(props: BlogCardPropsInterface) {
       </div>
     );
   });
-  return <>{renderListBlogCard}</>;
+  return <div>{renderListBlogCard}</div>;
 }
 
 export default BlogCard;
