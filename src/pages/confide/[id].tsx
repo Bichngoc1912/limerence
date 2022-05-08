@@ -6,6 +6,7 @@ import { GetPageInfoResponseInterface } from '@/services/api/getPageInfo';
 import { GetContentPageResponseInterface } from '@/services/api/getContentPage';
 import MainLayout from '@/components/Layout/MainLayout';
 import ConfideContentSkeleton from '@/components/ConfideContentSkeleton';
+import dayjs from 'dayjs';
 
 export async function getServerSideProps() {
   return {
@@ -69,6 +70,8 @@ function ConfidePage(props: any) {
     return <ConfideContentSkeleton />;
   }
 
+  const createDate = dayjs(pageInfo?.created_time ?? 0).unix();
+
   return (
     <div className="pt-8 ">
       <div className="mb-4">
@@ -76,10 +79,10 @@ function ConfidePage(props: any) {
           {pageInfo?.properties?.title?.rich_text[0]?.plain_text ?? ''}
         </h2>
         <div className="flex">
-          {pageInfo?.properties?.tags?.multi_select?.map((item) => {
+          {pageInfo?.properties?.tags?.multi_select?.map((item, idx) => {
             return (
               <span
-                key={item.id}
+                key={idx + 'idx'}
                 style={{ zIndex: 1, color: item.color, marginRight: 4 }}
               >
                 {item.name}
@@ -88,20 +91,28 @@ function ConfidePage(props: any) {
           })}
         </div>
         <div>
-          <span className="text-sm gray-700">Ngày tạo: {pageInfo?.created_time}</span>
+          <span className="text-sm gray-700">Ngày tạo: {dayjs(createDate * 1000).format('DD/MM/YYYY')}</span>
         </div>
       </div>
-      <div>
+      <div className='py-4'>
         {paragraph?.results?.map((item, idx) => {
           return (
-            <div key={idx}>
-              <span>
-                {item?.paragraph?.rich_text?.map((itemTxt) => {
-                  return `${itemTxt.plain_text}`;
-                })}
-              </span>{' '}
-              <br />
-            </div>
+            <div key={idx + 'resultItem'}>
+              {item?.paragraph?.rich_text?.map((txtItem, itemIdx) => {
+                return (
+                  <span
+                    style={{
+                      color: txtItem?.annotations?.color,
+                      fontWeight: txtItem?.annotations?.bold ? '600' : 'unset',
+                      fontStyle: txtItem?.annotations?.italic ? 'italic' : 'inherit',
+                    }}
+                    key={'text_item' + itemIdx}
+                  >
+                    {txtItem.plain_text}
+                  </span>
+                );
+              })}
+            </div> 
           );
         })}
       </div>

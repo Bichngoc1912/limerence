@@ -11,7 +11,7 @@ function BookCard(props: BookCardPropsInterface) {
   const { data } = props;
   const currDate = Date.now();
   const converCurrDate = dayjs(currDate).format('DD/MM/YYYY');
-  const dateCreate = data?.properties?.time?.created_time.split('T');
+  const dateCreate = dayjs(data?.properties?.time?.created_time ?? 0).unix();
 
   const handleClickViewDetailBook = (id: string) => {
     return router.push(`/book/${id}`);
@@ -34,7 +34,7 @@ function BookCard(props: BookCardPropsInterface) {
           objectFit="inherit"
           src={data?.properties?.image?.files[0]?.file?.url ?? bookImage}
           alt="img...."
-          placeholder='blur'
+          placeholder="blur"
           blurDataURL={APP_CONFIGS.BLUR_IMAGE_BASE64}
         />
       </div>
@@ -43,7 +43,7 @@ function BookCard(props: BookCardPropsInterface) {
           {data?.properties?.title?.rich_text[0]?.plain_text ?? ''}
         </span>{' '}
         <br />
-        <span className="text-xs">Ngày tạo: {dateCreate[0] ?? converCurrDate}</span>{' '}
+        <span className="text-xs">Ngày tạo: {dayjs(dateCreate * 1000).format('DD/MM/YYYY') ?? converCurrDate}</span>{' '}
         <br />
         <div>
           {data?.properties?.tags?.multi_select?.map((item) => {

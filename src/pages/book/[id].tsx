@@ -73,8 +73,8 @@ function BookDetailPage() {
     return <ConfideContentSkeleton />;
   }
 
-  const createDate = pageInfo?.properties?.time?.created_time ?? '';
-  const createDateConv = createDate?.split('T');
+  const createDate = dayjs(pageInfo?.properties?.time?.created_time ?? 0).unix();
+  const createDateConv = dayjs(createDate * 1000).format('DD/MM/YYYY');
   const currDate = Date.now();
   const currDateInner = dayjs(currDate).format('DD/MM/YYYY');
 
@@ -93,7 +93,7 @@ function BookDetailPage() {
         </span>{' '}
         <br />
         <span className="text-sm">
-          Ngày tạo: {createDateConv[0] ?? currDateInner}{' '}
+          Ngày tạo: {createDateConv ?? currDateInner}{' '}
         </span>{' '}
         <br />
         <div>
@@ -101,8 +101,8 @@ function BookDetailPage() {
             return (
               <span key={item.id} style={{ color: item.color }} className="text-sm">
                 {item.name} &nbsp;
-              </span> 
-            )
+              </span>
+            );
           })}
         </div>
       </div>
@@ -114,7 +114,7 @@ function BookDetailPage() {
                 <div style={{ width: '100%', height: 420 }} className="relative">
                   <Image
                     blurDataURL={APP_CONFIGS.BLUR_IMAGE_BASE64}
-                    placeholder='blur'
+                    placeholder="blur"
                     src={item?.image?.file?.url ?? bookImage}
                     layout="fill"
                     objectFit="inherit"

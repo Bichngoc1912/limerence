@@ -1,14 +1,12 @@
 import { BlogCardPropsInterface } from './types';
-import { useRouter } from 'next/router';
+import dayjs from 'dayjs';
 
 export function BlogCard(props: BlogCardPropsInterface) {
-  const router = useRouter();
-  const { id } = router.query;
-  const pageId = id as string;
-
+  
   const renderListBlogCard = props?.data?.results?.map((blogItem, idx) => {
+    const createDate = dayjs(blogItem.properties?.time?.created_time ?? 0).unix();
     return (
-      <div className="mb-8" key={idx}>
+      <div className="mb-8 px-2" key={idx}>
         <div className="mb-4">
           <span
             className="text-3xl font-medium hover:cursor-pointer"
@@ -20,7 +18,7 @@ export function BlogCard(props: BlogCardPropsInterface) {
 
         <div className="mb-2">
           <span className="text-sm text-gray-700">
-            Ngày tạo: {blogItem.properties?.time?.created_time ?? 0}
+            Ngày tạo: {dayjs(createDate * 1000).format('DD/MM/YYYY')}
           </span>
         </div>
 
@@ -31,9 +29,13 @@ export function BlogCard(props: BlogCardPropsInterface) {
         </div>
 
         <div>
-          <span className="text-sm text-gray-700">
-            {blogItem?.properties?.tags?.multi_select[0]?.name ?? ''}
-          </span>
+          {blogItem?.properties?.tags?.multi_select?.map((item) => {
+            return (
+              <span key={item.id} style={{ color: item.color }} className="text-sm">
+                {item.name ?? ''} &nbsp;
+              </span>
+            );
+          })}
         </div>
       </div>
     );
