@@ -1,7 +1,7 @@
 import { getHttpClient } from '@/helpers/httpClient';
 import { GetContentPageRequestInterface, GetContentPageResponseInterface } from './types';
 
-const BASE_URL = 'retrieveBlockChildren';
+const BASE_URL = '/api/retrieveBlockChildren';
 
 export async function getContentPage(
   req: GetContentPageRequestInterface,

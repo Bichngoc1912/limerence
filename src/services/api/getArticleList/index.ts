@@ -1,6 +1,6 @@
 import { getHttpClient } from '@/helpers/httpClient';
 
-const BASE_URL = 'queryDatabase';
+const BASE_URL = '/api/queryDatabase';
 
 export async function getArticleList(req?: any) {
   const httpClient = await getHttpClient();
