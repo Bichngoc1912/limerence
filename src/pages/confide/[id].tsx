@@ -8,7 +8,7 @@ import MainLayout from '@/components/Layout/MainLayout';
 import ConfideContentSkeleton from '@/components/ConfideContentSkeleton';
 import dayjs from 'dayjs';
 
-export async function getServerSideProps() {
+export function getServerSideProps() {
   return {
     props: {},
   };

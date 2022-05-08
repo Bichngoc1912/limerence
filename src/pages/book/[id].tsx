@@ -11,7 +11,7 @@ import Image from 'next/image';
 import dayjs from 'dayjs';
 import { APP_CONFIGS } from '@/configs/app';
 
-export async function getServerSideProps() {
+async function getServerSideProps() {
   return {
     props: {},
   };
