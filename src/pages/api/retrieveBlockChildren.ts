@@ -14,8 +14,8 @@ export default async function retrieveBlockChildren(
   const pageId = req.query.block_id as string;
   const resp = await httpServer.get(generateApiUrl(pageId));
   try {
-    return res.status(200).json(resp.data);
+    res.status(200).json(resp.data);
   } catch (err) {
-    return res.status(500).json(err);
+    res.status(500).json(err);
   }
 }
