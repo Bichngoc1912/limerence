@@ -30,7 +30,6 @@ export function HomePage(props: any) {
   const router = useRouter();
 
   const handleClickViewDetailPageItem = (id: string) => {
-    console.log('id', id);
     return router.push(`/confide/${id}`);
   };
 

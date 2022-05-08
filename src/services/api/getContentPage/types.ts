@@ -36,9 +36,17 @@ interface ResultInterface {
   has_children: boolean;
   archived: boolean;
   type: string;
-  paragraph: {
+  paragraph?: {
     rich_text: RichTextInterface[];
     color: string;
+  };
+  image?: {
+    caption: any[];
+    file: {
+      url: string;
+      expiry_time: string;
+    };
+    type: string;
   };
 }
 export interface GetContentPageResponseInterface {

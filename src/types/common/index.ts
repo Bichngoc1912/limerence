@@ -54,7 +54,14 @@ export interface PropertiesInterface {
   image: {
     id: string;
     type: string;
-    url: string;
+    files: {
+      name: string;
+      type: string;
+      file: {
+        expiry_time: string;
+        url: string;
+      };
+    }[];
   };
   show: {
     checkbox: boolean;
