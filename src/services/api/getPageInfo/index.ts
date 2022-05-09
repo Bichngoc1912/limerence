@@ -1,7 +1,8 @@
 import { getHttpClient } from '@/helpers/httpClient';
 import { GetPageInfoResponseInterface, GetPageInfoRequestInterface } from './types';
+import { APP_CONFIGS } from '@/configs/app';
 
-const BASE_URL = '/api/retrievePage';
+const BASE_URL = APP_CONFIGS.APP_ENV === 'production' ? '/api/retrievePage' : 'retrievePage';
 
 export async function getPageInfo(
   req: GetPageInfoRequestInterface,
