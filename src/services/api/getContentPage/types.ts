@@ -40,6 +40,14 @@ interface ResultInterface {
     rich_text: RichTextInterface[];
     color: string;
   };
+  bulleted_list_item?: {
+    rich_text: RichTextInterface[];
+    color: string;
+  };
+  toggle?: {
+    rich_text: RichTextInterface[];
+    color: string;
+  };
   image?: {
     caption: any[];
     file: {

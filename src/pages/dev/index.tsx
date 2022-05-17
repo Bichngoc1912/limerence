@@ -1,34 +1,37 @@
 import MainLayout from '@/components/Layout/MainLayout';
-import Image from 'next/image';
-import codingImg from '@/assets/images/coding.jpeg';
-import { APP_CONFIGS } from '@/configs/app';
+import DevCard from '@/components/cards/DevCard';
+import { getArticleList } from '@/services/api/getArticleList';
+import { ArticleListInterface } from '@/types/common';
 
 export async function getServerSideProps(){
+  const reqParam = {
+    filter: {
+      and: [
+        {
+          property: 'tags',
+          multi_select: {
+            contains: '#dev',
+          },
+        },
+      ],
+    },
+  };
+
   return {
-    props: {},
+    props: {
+      ...(await getArticleList(reqParam))
+    },
   }
 }
-function DevPage() {
+function DevPage(props: any) {
+  const data = props as ArticleListInterface;
+
   return (
-    <div className="p-4">
-      <div className=" block md:flex py-4">
-        <div style={{ width: '100%', height: 400 }} className="relative">
-          <Image
-            layout="fill"
-            objectFit="contain"
-            src={codingImg}
-            alt="coding...."
-            placeholder="blur"
-            blurDataURL={APP_CONFIGS.BLUR_IMAGE_BASE64}
-            loading="lazy"
-          />
-        </div>
-        <div>
-          <span>Nơi take note lại những kiến thức mà mình đã được học và đã áp dụng</span>{' '}
-          <br />
-          <span>Note dòi mà lười call api quá, thôi để sau 🥱</span> <br />
-          <span>Coding là dễ :))</span>
-        </div>
+    <div className=" block">
+      <div className='grid gap-4 justify-items-center md:grid-cols-2 grid-cols-1 mt-8 mb-4'>
+         {data?.results?.map((item, idx) => {
+            return <DevCard key={idx} data={item} />;
+          })}
       </div>
     </div>
   );
