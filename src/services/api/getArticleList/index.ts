@@ -1,7 +1,8 @@
 import { getHttpClient } from '@/helpers/httpClient';
 import { APP_CONFIGS } from '@/configs/app';
 
-const BASE_URL = APP_CONFIGS.APP_ENV === 'production' ?  '/api/queryDatabase' : '/queryDatabase'
+const BASE_URL =
+  APP_CONFIGS.APP_ENV === 'production' ? '/api/queryDatabase' : '/queryDatabase';
 
 export async function getArticleList(req?: any) {
   const httpClient = await getHttpClient();

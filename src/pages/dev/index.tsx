@@ -3,7 +3,7 @@ import DevCard from '@/components/cards/DevCard';
 import { getArticleList } from '@/services/api/getArticleList';
 import { ArticleListInterface } from '@/types/common';
 
-export async function getServerSideProps(){
+export async function getServerSideProps() {
   const reqParam = {
     filter: {
       and: [
@@ -19,19 +19,19 @@ export async function getServerSideProps(){
 
   return {
     props: {
-      ...(await getArticleList(reqParam))
+      ...(await getArticleList(reqParam)),
     },
-  }
+  };
 }
 function DevPage(props: any) {
   const data = props as ArticleListInterface;
 
   return (
     <div className=" block">
-      <div className='grid gap-4 justify-items-center md:grid-cols-2 grid-cols-1 mt-8 mb-4'>
-         {data?.results?.map((item, idx) => {
-            return <DevCard key={idx} data={item} />;
-          })}
+      <div className="grid gap-4 justify-items-center md:grid-cols-2 grid-cols-1 mt-8 mb-4">
+        {data?.results?.map((item, idx) => {
+          return <DevCard key={idx} data={item} />;
+        })}
       </div>
     </div>
   );

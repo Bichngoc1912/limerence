@@ -1,10 +1,9 @@
 import MainLayout from '@/components/Layout/MainLayout';
 
 export async function getServerSideProps() {
-
   return {
-    props: {}
-  }
+    props: {},
+  };
 }
 
 function HomePage(props: any) {

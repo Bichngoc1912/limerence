@@ -11,7 +11,7 @@ export default async function queryDatabase(
   const httpServer = await getHttpServer();
 
   const resp = await httpServer.post(API_URL, req.body);
-  console.log(".......", resp.headers)
+  console.log('.......', resp.headers);
   try {
     res.status(200).json(resp.data);
   } catch (err) {

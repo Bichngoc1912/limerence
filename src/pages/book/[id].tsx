@@ -92,9 +92,7 @@ function BookDetailPage() {
           {pageInfo?.properties?.title?.rich_text[0]?.plain_text}
         </span>{' '}
         <br />
-        <span className="text-sm">
-          Ngày tạo: {createDateConv ?? currDateInner}{' '}
-        </span>{' '}
+        <span className="text-sm">Ngày tạo: {createDateConv ?? currDateInner} </span>{' '}
         <br />
         <div>
           {pageInfo?.properties?.tags?.multi_select?.map((item) => {

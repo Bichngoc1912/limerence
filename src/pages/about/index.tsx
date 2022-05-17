@@ -5,25 +5,25 @@ import { APP_CONFIGS } from '@/configs/app';
 
 export async function getServerSideProps() {
   return {
-    props: {}
-  }
+    props: {},
+  };
 }
 
 function AboutPage(props: any) {
   return (
     <div className="flex py-4">
-      <div style={{ width: '50%', height: 200 }} className='relative'>
-        <Image 
-          layout='fill'
-          objectFit='contain'
+      <div style={{ width: '50%', height: 200 }} className="relative">
+        <Image
+          layout="fill"
+          objectFit="contain"
           src={aboutImg}
-          alt='avatar img...'
+          alt="avatar img..."
           blurDataURL={APP_CONFIGS.BLUR_IMAGE_BASE64}
-          placeholder='blur'
-          loading='lazy'
+          placeholder="blur"
+          loading="lazy"
         />
       </div>
-      <div className='p-4 w-1/2 flex items-center content-center justify-center'>
+      <div className="p-4 w-1/2 flex items-center content-center justify-center">
         <span>...nothing...</span>
       </div>
     </div>

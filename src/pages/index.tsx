@@ -3,7 +3,7 @@ import BlogCard from '@/components/cards/BlogCard';
 import { getArticleList } from '@/services/api/getArticleList';
 import { useRouter } from 'next/router';
 
-export async function getServerSideProps(){
+export async function getServerSideProps() {
   const reqParam = {
     filter: {
       and: [
@@ -19,7 +19,7 @@ export async function getServerSideProps(){
 
   return {
     props: {
-      ...(await getArticleList(reqParam))
+      ...(await getArticleList(reqParam)),
     },
   };
 }

@@ -43,7 +43,9 @@ function BookCard(props: BookCardPropsInterface) {
           {data?.properties?.title?.rich_text[0]?.plain_text ?? ''}
         </span>{' '}
         <br />
-        <span className="text-xs">Ngày tạo: {dayjs(dateCreate * 1000).format('DD/MM/YYYY') ?? converCurrDate}</span>{' '}
+        <span className="text-xs">
+          Ngày tạo: {dayjs(dateCreate * 1000).format('DD/MM/YYYY') ?? converCurrDate}
+        </span>{' '}
         <br />
         <div>
           {data?.properties?.tags?.multi_select?.map((item) => {

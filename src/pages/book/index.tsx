@@ -19,7 +19,7 @@ export async function getServerSideProps() {
 
   return {
     props: {
-      ...(await getArticleList(reqParam))
+      ...(await getArticleList(reqParam)),
     },
   };
 }

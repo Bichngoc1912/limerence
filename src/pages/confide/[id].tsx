@@ -91,10 +91,12 @@ function ConfidePage(props: any) {
           })}
         </div>
         <div>
-          <span className="text-sm gray-700">Ngày tạo: {dayjs(createDate * 1000).format('DD/MM/YYYY')}</span>
+          <span className="text-sm gray-700">
+            Ngày tạo: {dayjs(createDate * 1000).format('DD/MM/YYYY')}
+          </span>
         </div>
       </div>
-      <div className='py-4'>
+      <div className="py-4">
         {paragraph?.results?.map((item, idx) => {
           return (
             <div key={idx + 'resultItem'}>
@@ -112,7 +114,7 @@ function ConfidePage(props: any) {
                   </span>
                 );
               })}
-            </div> 
+            </div>
           );
         })}
       </div>

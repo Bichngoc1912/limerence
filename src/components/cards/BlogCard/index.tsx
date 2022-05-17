@@ -2,7 +2,6 @@ import { BlogCardPropsInterface } from './types';
 import dayjs from 'dayjs';
 
 export function BlogCard(props: BlogCardPropsInterface) {
-  
   const renderListBlogCard = props?.data?.results?.map((blogItem, idx) => {
     const createDate = dayjs(blogItem.properties?.time?.created_time ?? 0).unix();
     return (

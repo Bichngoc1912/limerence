@@ -3,10 +3,10 @@ import Image from 'next/image';
 import lazyImage from '@/assets/images/lazy-chore-page.jpeg';
 import { APP_CONFIGS } from '@/configs/app';
 
-export async function getServerSideProps(){
+export async function getServerSideProps() {
   return {
     props: {},
-  }
+  };
 }
 function ChorePage() {
   return (

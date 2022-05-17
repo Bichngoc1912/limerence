@@ -1,13 +1,16 @@
-import MainLayout from "@/components/Layout/MainLayout";
+import MainLayout from '@/components/Layout/MainLayout';
 import { APP_CONFIGS } from '@/configs/app';
 import Image from 'next/image';
 import ConfideContentSkeleton from '@/components/ConfideContentSkeleton';
 import React, { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/router';
 import { getPageInfo, GetPageInfoResponseInterface } from '@/services/api/getPageInfo';
-import { getContentPage, GetContentPageResponseInterface } from '@/services/api/getContentPage';
+import {
+  getContentPage,
+  GetContentPageResponseInterface,
+} from '@/services/api/getContentPage';
 import bookImage from '@/assets/images/bg-content-page.jpg';
-import dayjs from "dayjs";
+import dayjs from 'dayjs';
 
 function DevDetailPage() {
   const router = useRouter();
@@ -16,22 +19,23 @@ function DevDetailPage() {
   const pageId = id as string;
 
   const [isError, setIsError] = useState<boolean>(false);
-  const [isLoading, setIsLoading] = useState<boolean>(false);  
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [paragraph, setParagraph] = useState<GetContentPageResponseInterface>();
   const [pageInfo, setPageInfo] = useState<GetPageInfoResponseInterface>();
   const [isGetBlockChildren, setIsGetBlockChildren] = useState<boolean>(false);
-  const [blockChildrendContent, setBlockChildrenContent] = useState<GetContentPageResponseInterface>();
+  const [blockChildrendContent, setBlockChildrenContent] =
+    useState<GetContentPageResponseInterface>();
   const [openBlockChildren, setOpenBlockChildren] = useState<boolean>(false);
   const [getBlockChildrenError, setGetBlockChildrenError] = useState<boolean>(false);
   const [idBlockChildren, setIdBlockChildren] = useState<string>();
-  
+
   let isComponentMounted = useRef(false);
   useEffect(() => {
     isComponentMounted.current = true;
 
     return () => {
       isComponentMounted.current = false;
-    }
+    };
   }, []);
 
   useEffect(() => {
@@ -75,7 +79,7 @@ function DevDetailPage() {
   const handleClickBack = () => {
     return router.back();
   };
-  console.log("paragraph", paragraph)
+  console.log('paragraph', paragraph);
 
   const handleClickViewContentBlockChildren = (blockId: string) => {
     if (!blockId) return;
@@ -87,7 +91,7 @@ function DevDetailPage() {
     }
 
     if (blockChildrendContent || blockChildrendContent !== null) {
-      setBlockChildrenContent(undefined)
+      setBlockChildrenContent(undefined);
     }
 
     getContentPage({ block_id: blockId })
@@ -103,13 +107,13 @@ function DevDetailPage() {
         setGetBlockChildrenError(true);
         console.log('get content page err...', err);
       });
-  }
+  };
 
   if (isLoading) {
     return <ConfideContentSkeleton />;
   }
 
-  console.log("blockChildrendContent", blockChildrendContent)
+  console.log('blockChildrendContent', blockChildrendContent);
   return (
     <div>
       <div className="flex justify-start">
@@ -120,9 +124,7 @@ function DevDetailPage() {
           {pageInfo?.properties?.title?.rich_text[0]?.plain_text}
         </span>{' '}
         <br />
-        <span className="text-sm">
-          Ngày tạo: {createDateConv ?? currDateInner}{' '}
-        </span>{' '}
+        <span className="text-sm">Ngày tạo: {createDateConv ?? currDateInner} </span>{' '}
         <br />
         <div>
           {pageInfo?.properties?.tags?.multi_select?.map((item) => {
@@ -138,44 +140,43 @@ function DevDetailPage() {
       {paragraph?.results?.map((item, idx) => {
         return (
           <div key={idx}>
-              {item?.type === 'image' ? (
-                <div style={{ width: '100%', height: 420 }} className="relative">
-                  <Image
-                    blurDataURL={APP_CONFIGS.BLUR_IMAGE_BASE64}
-                    placeholder="blur"
-                    src={item?.image?.file?.url ?? bookImage}
-                    layout="fill"
-                    objectFit="inherit"
-                    alt="img..."
-                  />
-                </div>
-              ) : (
-                <div className="p-4">
-                  <p>
-                    {item.paragraph?.rich_text?.map((item, index) => {
-                      return (
-                        <span
-                          key={index} 
-                          style={{ 
-                            color: item.annotations.color,
-                            fontStyle: item.annotations?.italic ? 'italic' : 'inherit' 
-                          }}
-                        >
-                          {item.plain_text}
-                        </span>
-                      )
-                    })}{' '}
-                    <br />
-                  </p>
-                </div>
-              )}
-            </div>
-        )
+            {item?.type === 'image' ? (
+              <div style={{ width: '100%', height: 420 }} className="relative">
+                <Image
+                  blurDataURL={APP_CONFIGS.BLUR_IMAGE_BASE64}
+                  placeholder="blur"
+                  src={item?.image?.file?.url ?? bookImage}
+                  layout="fill"
+                  objectFit="inherit"
+                  alt="img..."
+                />
+              </div>
+            ) : (
+              <div className="p-4">
+                <p>
+                  {item.paragraph?.rich_text?.map((item, index) => {
+                    return (
+                      <span
+                        key={index}
+                        style={{
+                          color: item.annotations.color,
+                          fontStyle: item.annotations?.italic ? 'italic' : 'inherit',
+                        }}
+                      >
+                        {item.plain_text}
+                      </span>
+                    );
+                  })}{' '}
+                  <br />
+                </p>
+              </div>
+            )}
+          </div>
+        );
       })}
     </div>
-  )
+  );
 }
-
 
 DevDetailPage.Layout = MainLayout;
 export default DevDetailPage;
