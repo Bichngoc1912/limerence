@@ -11,7 +11,7 @@ export async function getServerSideProps() {
 
 export default function HomeLayout({ children }: LayoutPropsInterface) {
   return (
-    <div className="bg-gray-50 font-serif">
+    <div className="bg-gray-100 font-serif">
       <Header />
       <div className="w-full h-screen mb-4">
         <div className="bg-[url('../../src/assets/images/bau-troi.jpg')] bg-no-repeat items-center w-full h-full bg-cover flex">
@@ -23,7 +23,7 @@ export default function HomeLayout({ children }: LayoutPropsInterface) {
           </div>
         </div>
       </div>
-      <div className=" bg-gray-50">
+      <div className=" bg-gray-100">
         <div className="max-w-4xl my-0 mx-auto">{children}</div>
       </div>
       <Footer />

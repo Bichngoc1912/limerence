@@ -113,18 +113,17 @@ function DevDetailPage() {
     return <ConfideContentSkeleton />;
   }
 
-  console.log('blockChildrendContent', blockChildrendContent);
   return (
-    <div>
-      <div className="flex justify-start">
+    <div >
+      <div className="flex justify-start px-8 pt-4">
         <button onClick={() => handleClickBack()}>Quay lại</button>
       </div>
-      <div>
-        <span className="text-2xl font-semibold">
+      <div className='py-4 px-8'>
+        <span className="text-3xl text-slate-700 font-semibold">
           {pageInfo?.properties?.title?.rich_text[0]?.plain_text}
         </span>{' '}
         <br />
-        <span className="text-sm">Ngày tạo: {createDateConv ?? currDateInner} </span>{' '}
+        <span className="text-sm text-slate-800">Ngày tạo: {createDateConv ?? currDateInner} </span>{' '}
         <br />
         <div>
           {pageInfo?.properties?.tags?.multi_select?.map((item) => {
@@ -152,8 +151,8 @@ function DevDetailPage() {
                 />
               </div>
             ) : (
-              <div className="p-4">
-                <p>
+              <div className="py-4 px-8">
+                <p className='text-slate-800'>
                   {item.paragraph?.rich_text?.map((item, index) => {
                     return (
                       <span

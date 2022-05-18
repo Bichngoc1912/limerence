@@ -28,7 +28,7 @@ function BookCard(props: BookCardPropsInterface) {
         borderBottomRightRadius: 10,
       }}
     >
-      <div style={{ width: '100%', height: 200 }} className="relative">
+      <div style={{ width: '100%', height: 200 }} className="relative hover:opacity-70">
         <Image
           layout="fill"
           objectFit="inherit"

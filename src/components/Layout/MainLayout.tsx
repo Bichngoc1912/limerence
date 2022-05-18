@@ -5,7 +5,7 @@ import Footer from '../Footer';
 
 export default function MainLayout({ children }: LayoutPropsInterface) {
   return (
-    <div className="bg-gray-50 h-auto font-serif">
+    <div className="bg-gray-100 min-h-screen font-serif">
       <Header />
       <div className="max-w-4xl my-0 mx-auto px-4">{children}</div>
       <Footer />

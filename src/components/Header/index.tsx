@@ -38,6 +38,21 @@ function Header() {
     return menuHeaderList;
   }, []);
 
+  const checkCurrPage = (href: string, currPage: string) => {
+    console.log('href', href, 'currPage')
+    if (typeof href !== 'string' || !href) return false;
+
+    if (currPage.includes('/book')) return true;
+
+    if (currPage.includes('/chore')) return true;
+
+    if (currPage.includes('/dev')) return true;
+
+    if (currPage.includes('/about')) return true;
+
+    return true;
+  }
+
   const renderMenuList = menuList.map((item) => {
     return (
       <div
@@ -47,7 +62,6 @@ function Header() {
         <Link href={item.href}>
           <a
             style={{
-              textDecoration: router.pathname === item.href ? 'underline' : 'none',
               color: router.pathname === item.href ? '#3B82F6' : 'inherit',
             }}
           >
@@ -63,7 +77,7 @@ function Header() {
   };
 
   return (
-    <div className="h-16 border-b border-gray-300 z-20 w-full bg-gray-100 flex justify-center items-center sticky top-0">
+    <div className="h-16 border-b border-gray-300 z-20 w-full bg-gray-50 flex justify-center items-center sticky top-0">
       <div className="max-w-4xl pl-2 pr-2 w-full my-0 mx-auto flex justify-between items-center">
         <div
           className="font-[ms-madi] text-lg  text-blue-500 hover:cursor-pointer"

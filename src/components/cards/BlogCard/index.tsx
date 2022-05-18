@@ -8,10 +8,10 @@ export function BlogCard(props: BlogCardPropsInterface) {
       <div className="mb-8 px-2" key={idx}>
         <div className="mb-4">
           <span
-            className="text-3xl font-medium hover:cursor-pointer"
+            className="text-3xl text-slate-700 font-medium hover:cursor-pointer"
             onClick={() => props.onClick(blogItem.id)}
           >
-            {blogItem.properties.article?.title[0]?.text?.content ?? ''}
+            {blogItem?.properties?.title?.rich_text[0].text.content ?? ''}
           </span>
         </div>
 

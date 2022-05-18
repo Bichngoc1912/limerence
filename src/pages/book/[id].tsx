@@ -83,16 +83,16 @@ function BookDetailPage() {
   };
 
   return (
-    <div className="mt-8">
-      <div className="flex justify-end">
+    <div className="mt-4">
+      <div className="flex justify-start px-8 text-slate-800">
         <button onClick={() => handleClickBack()}>Quay lại</button>
       </div>
-      <div>
-        <span className="text-2xl font-semibold">
+      <div className='py-4 pt-0 px-8'>
+        <span className="text-3xl text-slate-700 font-semibold">
           {pageInfo?.properties?.title?.rich_text[0]?.plain_text}
         </span>{' '}
         <br />
-        <span className="text-sm">Ngày tạo: {createDateConv ?? currDateInner} </span>{' '}
+        <span className="text-sm text-slate-800">Ngày tạo: {createDateConv ?? currDateInner} </span>{' '}
         <br />
         <div>
           {pageInfo?.properties?.tags?.multi_select?.map((item) => {
@@ -111,6 +111,7 @@ function BookDetailPage() {
               {item?.type === 'image' ? (
                 <div style={{ width: '100%', height: 420 }} className="relative">
                   <Image
+                    quality={100}
                     blurDataURL={APP_CONFIGS.BLUR_IMAGE_BASE64}
                     placeholder="blur"
                     src={item?.image?.file?.url ?? bookImage}
@@ -120,8 +121,8 @@ function BookDetailPage() {
                   />
                 </div>
               ) : (
-                <div className="p-4">
-                  <p>
+                <div className="px-8 py-4">
+                  <p className='text-slate-800'>
                     {item.paragraph?.rich_text?.map((item) => {
                       return `${item.plain_text}`;
                     })}{' '}

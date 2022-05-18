@@ -1,6 +1,7 @@
 ## CHANGELOG
 
-
+## v1.0.0 18/05/2022
+- [feature] Thay đổi layout
 ## 08/05/2022
 - [feature] Add env for detect app env
 ## 08/05/2022
