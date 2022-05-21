@@ -39,6 +39,7 @@ export function BlogCard(props: BlogCardPropsInterface) {
       </div>
     );
   });
+  
   return <div>{renderListBlogCard}</div>;
 }
 

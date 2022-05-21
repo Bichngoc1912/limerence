@@ -7,6 +7,7 @@ import { GetContentPageResponseInterface } from '@/services/api/getContentPage';
 import MainLayout from '@/components/Layout/MainLayout';
 import ConfideContentSkeleton from '@/components/ConfideContentSkeleton';
 import dayjs from 'dayjs';
+import { renderContentConfidePage } from '@/components/pages/ContentPage';
 
 export async function getServerSideProps() {
   return {
@@ -98,24 +99,7 @@ function ConfidePage(props: any) {
       </div>
       <div className="py-4">
         {paragraph?.results?.map((item, idx) => {
-          return (
-            <div key={idx + 'resultItem'}>
-              {item?.paragraph?.rich_text?.map((txtItem, itemIdx) => {
-                return (
-                  <span
-                    style={{
-                      color: txtItem?.annotations?.color,
-                      fontWeight: txtItem?.annotations?.bold ? '600' : 'unset',
-                      fontStyle: txtItem?.annotations?.italic ? 'italic' : 'inherit',
-                    }}
-                    key={'text_item' + itemIdx}
-                  >
-                    {txtItem.plain_text}
-                  </span>
-                );
-              })}
-            </div>
-          );
+          return renderContentConfidePage(item.type, item)
         })}
       </div>
     </div>

@@ -6,10 +6,8 @@ import { getPageInfo } from '@/services/api/getPageInfo';
 import { getContentPage } from '@/services/api/getContentPage';
 import { GetPageInfoResponseInterface } from '@/services/api/getPageInfo';
 import { GetContentPageResponseInterface } from '@/services/api/getContentPage';
-import bookImage from '@/assets/images/bg-content-page.jpg';
-import Image from 'next/image';
 import dayjs from 'dayjs';
-import { APP_CONFIGS } from '@/configs/app';
+import { renderContentConfidePage } from '@/components/pages/ContentPage';
 
 export async function getServerSideProps() {
   return {
@@ -107,31 +105,10 @@ function BookDetailPage() {
       <div>
         {paragraph?.results?.map((item, idx) => {
           return (
-            <div key={idx}>
-              {item?.type === 'image' ? (
-                <div style={{ width: '100%', height: 420 }} className="relative">
-                  <Image
-                    quality={100}
-                    blurDataURL={APP_CONFIGS.BLUR_IMAGE_BASE64}
-                    placeholder="blur"
-                    src={item?.image?.file?.url ?? bookImage}
-                    layout="fill"
-                    objectFit="inherit"
-                    alt="img..."
-                  />
-                </div>
-              ) : (
-                <div className="px-8 py-4">
-                  <p className='text-slate-800'>
-                    {item.paragraph?.rich_text?.map((item) => {
-                      return `${item.plain_text}`;
-                    })}{' '}
-                    <br />
-                  </p>
-                </div>
-              )}
-            </div>
-          );
+            <React.Fragment key={idx}>
+              {renderContentConfidePage(item.type, item)}
+            </React.Fragment> 
+          )
         })}
       </div>
     </div>

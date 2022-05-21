@@ -1,7 +1,11 @@
 ## CHANGELOG
 
+## v1.1.0 21.05/2022
+- [improve] Tách phần hiển thị block con thành một component riêng để dùng chung và switch theo type của content
+
 ## v1.0.0 18/05/2022
 - [feature] Thay đổi layout
+
 ## 08/05/2022
 - [feature] Add env for detect app env
 ## 08/05/2022

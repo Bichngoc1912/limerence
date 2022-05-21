@@ -20,7 +20,7 @@ interface RichTextInterface {
   href: string;
 }
 
-interface ResultInterface {
+export interface ResultInterface {
   object: string;
   id: string;
   created_time: string;

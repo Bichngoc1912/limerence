@@ -2,7 +2,7 @@ import MainLayout from '@/components/Layout/MainLayout';
 import { APP_CONFIGS } from '@/configs/app';
 import Image from 'next/image';
 import ConfideContentSkeleton from '@/components/ConfideContentSkeleton';
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, Fragment } from 'react';
 import { useRouter } from 'next/router';
 import { getPageInfo, GetPageInfoResponseInterface } from '@/services/api/getPageInfo';
 import {
@@ -11,6 +11,7 @@ import {
 } from '@/services/api/getContentPage';
 import bookImage from '@/assets/images/bg-content-page.jpg';
 import dayjs from 'dayjs';
+import { renderContentConfidePage } from '@/components/pages/ContentPage';
 
 function DevDetailPage() {
   const router = useRouter();
@@ -22,12 +23,6 @@ function DevDetailPage() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [paragraph, setParagraph] = useState<GetContentPageResponseInterface>();
   const [pageInfo, setPageInfo] = useState<GetPageInfoResponseInterface>();
-  const [isGetBlockChildren, setIsGetBlockChildren] = useState<boolean>(false);
-  const [blockChildrendContent, setBlockChildrenContent] =
-    useState<GetContentPageResponseInterface>();
-  const [openBlockChildren, setOpenBlockChildren] = useState<boolean>(false);
-  const [getBlockChildrenError, setGetBlockChildrenError] = useState<boolean>(false);
-  const [idBlockChildren, setIdBlockChildren] = useState<string>();
 
   let isComponentMounted = useRef(false);
   useEffect(() => {
@@ -79,35 +74,6 @@ function DevDetailPage() {
   const handleClickBack = () => {
     return router.back();
   };
-  console.log('paragraph', paragraph);
-
-  const handleClickViewContentBlockChildren = (blockId: string) => {
-    if (!blockId) return;
-    setIsGetBlockChildren(true);
-    setIdBlockChildren(blockId);
-
-    if (openBlockChildren) {
-      setOpenBlockChildren(false);
-    }
-
-    if (blockChildrendContent || blockChildrendContent !== null) {
-      setBlockChildrenContent(undefined);
-    }
-
-    getContentPage({ block_id: blockId })
-      .then((res) => {
-        if (!isComponentMounted.current) return;
-        setIsGetBlockChildren(false);
-        setBlockChildrenContent(res);
-        setOpenBlockChildren(true);
-      })
-      .catch((err) => {
-        if (!isComponentMounted.current) return;
-        setIsGetBlockChildren(false);
-        setGetBlockChildrenError(true);
-        console.log('get content page err...', err);
-      });
-  };
 
   if (isLoading) {
     return <ConfideContentSkeleton />;
@@ -138,40 +104,10 @@ function DevDetailPage() {
 
       {paragraph?.results?.map((item, idx) => {
         return (
-          <div key={idx}>
-            {item?.type === 'image' ? (
-              <div style={{ width: '100%', height: 420 }} className="relative">
-                <Image
-                  blurDataURL={APP_CONFIGS.BLUR_IMAGE_BASE64}
-                  placeholder="blur"
-                  src={item?.image?.file?.url ?? bookImage}
-                  layout="fill"
-                  objectFit="inherit"
-                  alt="img..."
-                />
-              </div>
-            ) : (
-              <div className="py-4 px-8">
-                <p className='text-slate-800'>
-                  {item.paragraph?.rich_text?.map((item, index) => {
-                    return (
-                      <span
-                        key={index}
-                        style={{
-                          color: item.annotations.color,
-                          fontStyle: item.annotations?.italic ? 'italic' : 'inherit',
-                        }}
-                      >
-                        {item.plain_text}
-                      </span>
-                    );
-                  })}{' '}
-                  <br />
-                </p>
-              </div>
-            )}
-          </div>
-        );
+          <React.Fragment key={idx}>
+            {renderContentConfidePage(item.type, item)}
+          </React.Fragment>
+        )
       })}
     </div>
   );
