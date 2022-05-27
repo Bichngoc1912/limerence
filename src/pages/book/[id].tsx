@@ -8,6 +8,7 @@ import { GetPageInfoResponseInterface } from '@/services/api/getPageInfo';
 import { GetContentPageResponseInterface } from '@/services/api/getContentPage';
 import dayjs from 'dayjs';
 import { renderContentConfidePage } from '@/components/pages/ContentPage';
+import AlertError from '@/components/Alert/AlertError';
 
 export async function getServerSideProps() {
   return {
@@ -69,6 +70,14 @@ function BookDetailPage() {
 
   if (isLoading) {
     return <ConfideContentSkeleton />;
+  }
+
+  if (isError) {
+    return (
+      <div className='pt-8'>
+        <AlertError />
+      </div>
+    )
   }
 
   const createDate = dayjs(pageInfo?.properties?.time?.created_time ?? 0).unix();

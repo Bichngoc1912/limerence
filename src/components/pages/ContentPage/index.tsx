@@ -23,8 +23,19 @@ export const renderContentConfidePage = (type: string, dataRender: ResultInterfa
       return (
         <div className="px-8 mb-4">
           <p className='text-slate-800'>
-            {dataRender.paragraph?.rich_text?.map((item) => {
-              return `${item.plain_text}`;
+            {dataRender.paragraph?.rich_text?.map((item, idx) => {
+              return (
+                <span
+                  key={idx + 'n'}
+                  style={{ 
+                    color: item.annotations?.color,
+                    fontWeight: item.annotations?.bold ? 'bold' : 'normal',
+                    fontStyle: item.annotations?.italic ? 'italic' : 'normal',
+                  }}
+                >
+                  {item.plain_text}
+                </span>
+              )
             })}{' '}
           </p>
         </div>
@@ -33,7 +44,11 @@ export const renderContentConfidePage = (type: string, dataRender: ResultInterfa
       return (
         <ul className='text-slate-800 mx-16 list-disc'>
           {dataRender.bulleted_list_item?.rich_text?.map((item, idx) => {
-            return <li key={idx}>{item.plain_text}</li>
+            return (
+              <li key={idx + 'k'}>
+                 {item.plain_text}
+              </li>
+            )
           })}{' '}
         </ul>
       )

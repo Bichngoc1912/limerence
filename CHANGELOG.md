@@ -1,6 +1,11 @@
 ## CHANGELOG
 
-## v1.1.0 21.05/2022
+## v1.2.0 - 21/05/2022
+- [feature] Gắn thêm component `AlertError`
+- [feature] Thêm version
+- [bug] sửa lỗi không hiển thị đúng màu của văn bản
+
+## v1.1.0 21/05/2022
 - [improve] Tách phần hiển thị block con thành một component riêng để dùng chung và switch theo type của content
 
 ## v1.0.0 18/05/2022

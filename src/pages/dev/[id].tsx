@@ -1,6 +1,4 @@
 import MainLayout from '@/components/Layout/MainLayout';
-import { APP_CONFIGS } from '@/configs/app';
-import Image from 'next/image';
 import ConfideContentSkeleton from '@/components/ConfideContentSkeleton';
 import React, { useState, useEffect, useRef, Fragment } from 'react';
 import { useRouter } from 'next/router';
@@ -9,9 +7,9 @@ import {
   getContentPage,
   GetContentPageResponseInterface,
 } from '@/services/api/getContentPage';
-import bookImage from '@/assets/images/bg-content-page.jpg';
 import dayjs from 'dayjs';
 import { renderContentConfidePage } from '@/components/pages/ContentPage';
+import AlertError from '@/components/Alert/AlertError';
 
 function DevDetailPage() {
   const router = useRouter();
@@ -77,6 +75,14 @@ function DevDetailPage() {
 
   if (isLoading) {
     return <ConfideContentSkeleton />;
+  }
+
+  if (isError) {
+    return (
+      <div className='pt-8'>
+        <AlertError />
+      </div>
+    )
   }
 
   return (
