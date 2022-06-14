@@ -4,6 +4,7 @@ import { BookCardPropsInterface } from './types';
 import dayjs from 'dayjs';
 import { useRouter } from 'next/router';
 import { APP_CONFIGS } from '@/configs/app';
+import { generateBookDetailRouter } from '@/services/bussiness/router/generateRouter';
 
 function BookCard(props: BookCardPropsInterface) {
   const router = useRouter();
@@ -14,7 +15,10 @@ function BookCard(props: BookCardPropsInterface) {
   const dateCreate = dayjs(data?.properties?.time?.created_time ?? 0).unix();
 
   const handleClickViewDetailBook = (id: string) => {
-    return router.push(`/book/${id}`);
+    const asPath = generateBookDetailRouter({ id: id })?.asPath;
+    if (asPath) {
+      router.push(asPath);
+    }
   };
 
   return (

@@ -7,21 +7,25 @@ export const renderContentConfidePage = (type: string, dataRender: ResultInterfa
   switch(type) {
     case 'image': 
       return (
-        <div style={{ width: '100%', height: 420, marginBottom: 16 }} className="relative">
-          <Image
-            quality={100}
-            blurDataURL={APP_CONFIGS.BLUR_IMAGE_BASE64}
-            placeholder="blur"
-            src={dataRender?.image?.file?.url ?? bookImage}
-            layout="fill"
-            objectFit="inherit"
-            alt="img..."
-          />
+        <div className="max-w-4xl px-4 mx-auto my-4">
+          <div className="bg-white overflow-hidden">
+            <Image
+              width={900}
+              height={450}
+              quality={100}
+              blurDataURL={APP_CONFIGS.BLUR_IMAGE_BASE64}
+              placeholder="blur"
+              src={dataRender?.image?.file?.url ?? bookImage}
+              layout="responsive"
+              objectFit="cover"
+              alt="img..."
+            />
+          </div>
         </div>
       )
     case 'paragraph': 
       return (
-        <div className="px-8 mb-4">
+        <div className="px-4 mb-4">
           <p className='text-slate-800'>
             {dataRender.paragraph?.rich_text?.map((item, idx) => {
               return (

@@ -9,3 +9,15 @@
   const splitSlugArr = slug.split('-');
   return splitSlugArr[splitSlugArr.length - 1];
 }
+
+export function jsonDecode(json: string) {
+  if (typeof json !== 'string') {
+    return undefined;
+  }
+
+  try {
+    return JSON.parse(json);
+  }catch(err) {
+    return undefined;
+  }
+}

@@ -1,5 +1,8 @@
 ## CHANGELOG
 
+## v1.2.1 - 21/05/2022
+- [core] Chuyển đổi gọi các page từ client-side sang server-side
+- [feature] Bổ sung func `jsonDecode` và các function generateRouter
 ## v1.2.0 - 21/05/2022
 - [feature] Gắn thêm component `AlertError`
 - [feature] Thêm version

@@ -1,6 +1,5 @@
 import MainLayout from '@/components/Layout/MainLayout';
-import ConfideContentSkeleton from '@/components/ConfideContentSkeleton';
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useMemo } from 'react';
 import { useRouter } from 'next/router';
 import { getPageInfo } from '@/services/api/getPageInfo';
 import { getContentPage } from '@/services/api/getContentPage';
@@ -9,81 +8,80 @@ import { GetContentPageResponseInterface } from '@/services/api/getContentPage';
 import dayjs from 'dayjs';
 import { renderContentConfidePage } from '@/components/pages/ContentPage';
 import AlertError from '@/components/Alert/AlertError';
+import { jsonDecode } from '@/helpers/urlHelper';
 
-export async function getServerSideProps() {
-  return {
-    props: {},
-  };
+export async function getServerSideProps(context: any) {
+  const pageId = context?.params?.id ?? '';
+  try{
+    const [pageInfoResp, pageContentResp] = await Promise.all([
+      getPageInfo({ page_id: pageId }), getContentPage({ block_id: pageId })
+    ])
+
+    return {
+      props: {
+        respErr: null,
+        pageInfoResp,
+        pageContentResp
+      },
+    };
+  }catch(e: any) {
+    const respErr = jsonDecode(e.body);
+    return {
+      props: {
+        respErr: respErr,
+        pageInfoResp: null,
+        pageContentResp: null
+      },
+    };
+  }
 }
 
-function BookDetailPage() {
+function BookDetailPage(props: any) {
+  const { pageInfoResp, pageContentResp, respErr } = props;
+  const pageInfo: GetPageInfoResponseInterface = useMemo(() => {
+    return pageInfoResp;
+  }, [pageInfoResp]);
+
+  const contentPageInfo: GetContentPageResponseInterface = useMemo(() => {
+    return pageContentResp;
+  }, [pageContentResp]);
+
+  const createDate = useMemo(() => {
+    return dayjs(pageInfo?.properties?.time?.created_time ?? 0).unix();
+  }, [pageInfo]);
+  
+  const pageTitle = useMemo(() => {
+    return pageInfo?.properties?.title?.rich_text[0]?.plain_text ?? ''
+  }, [pageInfo]);
+
+  const tagsList = useMemo(() => {
+    return pageInfo?.properties?.tags?.multi_select?.map((item) => {
+      return (
+        <span key={item.id} style={{ color: item.color }} className="text-sm">
+          {item.name} &nbsp;
+        </span>
+      );
+    })
+  }, [pageInfo]);
+
+  const createDateConv = useMemo(() => {
+    return dayjs(createDate * 1000).format('DD/MM/YYYY');
+  }, [createDate]);
+
+  const currDate = Date.now();
+  const currDateInner = useMemo(() => {
+    return dayjs(currDate).format('DD/MM/YYYY');
+  }, [currDate]);
+
   const router = useRouter();
-  const { id } = router.query;
-  const pageId = id as string;
 
-  const [paragraph, setParagraph] = useState<GetContentPageResponseInterface>();
-  const [pageInfo, setPageInfo] = useState<GetPageInfoResponseInterface>();
-  const [isError, setIsError] = useState<boolean>(false);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-
-  const isComponentMounted = useRef(false);
-  useEffect(() => {
-    isComponentMounted.current = true;
-
-    return () => {
-      isComponentMounted.current = false;
-    };
-  }, []);
-
-  useEffect(() => {
-    if (!pageId || !isComponentMounted.current) return;
-    setIsLoading(true);
-
-    getPageInfo({ page_id: pageId })
-      .then((res) => {
-        if (!isComponentMounted.current) return;
-        setIsLoading(false);
-        setIsError(false);
-        setPageInfo(res);
-      })
-      .catch((err) => {
-        if (!isComponentMounted.current) return;
-        setIsLoading(false);
-        setIsError(true);
-        console.log('get page info err ...', err);
-      });
-
-    getContentPage({ block_id: pageId })
-      .then((res) => {
-        if (!isComponentMounted.current) return;
-        setIsLoading(false);
-        setIsError(false);
-        setParagraph(res);
-      })
-      .catch((err) => {
-        if (!isComponentMounted.current) return;
-        setIsLoading(false);
-        setIsError(true);
-        console.log('get content page err...', err);
-      });
-  }, [pageId]);
-
-  if (isLoading) {
-    return <ConfideContentSkeleton />;
-  }
-
-  if (isError) {
+  if (respErr !== null) {
     return (
       <div className='pt-8'>
         <AlertError />
       </div>
     )
   }
-
-  const createDate = dayjs(pageInfo?.properties?.time?.created_time ?? 0).unix();
-  const createDateConv = dayjs(createDate * 1000).format('DD/MM/YYYY');
-  const currDate = Date.now();
-  const currDateInner = dayjs(currDate).format('DD/MM/YYYY');
 
   const handleClickBack = () => {
     return router.back();
@@ -96,23 +94,17 @@ function BookDetailPage() {
       </div>
       <div className='py-4 pt-0 px-8'>
         <span className="text-3xl text-slate-700 font-semibold">
-          {pageInfo?.properties?.title?.rich_text[0]?.plain_text}
+          {pageTitle}
         </span>{' '}
         <br />
         <span className="text-sm text-slate-800">Ngày tạo: {createDateConv ?? currDateInner} </span>{' '}
         <br />
         <div>
-          {pageInfo?.properties?.tags?.multi_select?.map((item) => {
-            return (
-              <span key={item.id} style={{ color: item.color }} className="text-sm">
-                {item.name} &nbsp;
-              </span>
-            );
-          })}
+          {tagsList}
         </div>
       </div>
       <div>
-        {paragraph?.results?.map((item, idx) => {
+        {contentPageInfo?.results?.map((item, idx) => {
           return (
             <React.Fragment key={idx}>
               {renderContentConfidePage(item.type, item)}
