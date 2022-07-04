@@ -1,6 +1,13 @@
 ## CHANGELOG
 
+## v1.2.3 - 04/07/2022
+
+- [improve] change logo
+
+## v1.2.2 
+
 - [feature] Change favicon for blog
+
 ## v1.2.1 - 21/05/2022
 
 - [core] Chuyển đổi gọi các page từ client-side sang server-side

@@ -83,7 +83,7 @@ function Header() {
           className="font-[ms-madi] text-lg  text-blue-500 hover:cursor-pointer"
           onClick={handleClickLogo}
         >
-          ❤._Limerence_.❤
+          ._Limerence_.
         </div>
         <div className="flex justify-between items-center">{renderMenuList}</div>
       </div>
