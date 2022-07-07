@@ -8,7 +8,6 @@ import { GetContentPageResponseInterface } from '@/services/api/getContentPage';
 import dayjs from 'dayjs';
 import { renderContentConfidePage } from '@/components/pages/ContentPage';
 import AlertError from '@/components/Alert/AlertError';
-import { jsonDecode } from '@/helpers/urlHelper';
 
 export async function getServerSideProps(context: any) {
   const pageId = context?.params?.id ?? '';
@@ -16,6 +15,10 @@ export async function getServerSideProps(context: any) {
     const [pageInfoResp, pageContentResp] = await Promise.all([
       getPageInfo({ page_id: pageId }), getContentPage({ block_id: pageId })
     ])
+    
+    if (!pageInfoResp) {
+      throw new Error(pageInfoResp)
+    }
 
     return {
       props: {
@@ -25,10 +28,9 @@ export async function getServerSideProps(context: any) {
       },
     };
   }catch(e: any) {
-    const respErr = jsonDecode(e.body);
     return {
       props: {
-        respErr: respErr,
+        respErr: JSON.stringify(e),
         pageInfoResp: null,
         pageContentResp: null
       },

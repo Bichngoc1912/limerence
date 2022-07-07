@@ -2,6 +2,11 @@ import React from 'react';
 import { useMemo } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import facebookIcon from '@/assets/images/icons/facebook.png';
+import githubIcon from '@/assets/images/icons/github.png';
+import linkedinIcon from '@/assets/images/icons/linkedin.png';
+import menuIcon from '@/assets/images/icons/menu.png';
+import Image from 'next/image';
 
 const menuHeaderList = [
   {
@@ -37,22 +42,7 @@ function Header() {
   const menuList = useMemo(() => {
     return menuHeaderList;
   }, []);
-
-  const checkCurrPage = (href: string, currPage: string) => {
-    console.log('href', href, 'currPage')
-    if (typeof href !== 'string' || !href) return false;
-
-    if (currPage.includes('/book')) return true;
-
-    if (currPage.includes('/chore')) return true;
-
-    if (currPage.includes('/dev')) return true;
-
-    if (currPage.includes('/about')) return true;
-
-    return true;
-  }
-
+  
   const renderMenuList = menuList.map((item) => {
     return (
       <div
@@ -85,7 +75,47 @@ function Header() {
         >
           ._Limerence_.
         </div>
-        <div className="flex justify-between items-center">{renderMenuList}</div>
+        <div className='grid grid-cols-3 gap-2'>
+          <div className='hover:rounded-full hover:bg-gray-300 hover:cursor-pointer w-8 h-8 content-center flex justify-center'>
+            <Image
+              src={facebookIcon}
+              width={20}
+              height={20}
+              alt='facebook icon'
+              objectFit='contain'
+            />
+          </div>
+
+          <div className='hover:rounded-full hover:bg-gray-300 hover:cursor-pointer w-8 h-8 content-center flex justify-center'>
+            <Image
+              src={githubIcon}
+              width={20}
+              height={20}
+              alt='github icon'
+              objectFit='contain'
+            />
+          </div>
+
+          <div className='hover:rounded-full hover:bg-gray-300 hover:cursor-pointer w-8 h-8 content-center flex justify-center'>
+            <Image
+              src={linkedinIcon}
+              width={20}
+              height={20}
+              alt='Linkedin icon'
+              objectFit='contain'
+            />
+          </div>
+        </div>
+
+        <div className='hover:cursor-pointer'>
+          <Image
+            src={menuIcon}
+            alt='menu icon'
+            width={20}
+            height={20}
+          />
+        </div>
+        {/* <div className="flex justify-between items-center">{renderMenuList}</div> */}
       </div>
     </div>
   );
