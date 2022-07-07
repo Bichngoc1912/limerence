@@ -14,25 +14,26 @@ import { jsonDecode } from '@/helpers/urlHelper';
 
 export async function getServerSideProps(context: any) {
   const pageId = context?.params?.id ?? '';
-  try{
+  try {
     const [pageInfoResp, pageContentResp] = await Promise.all([
-      getPageInfo({ page_id: pageId }), getContentPage({ block_id: pageId })
-    ])
+      getPageInfo({ page_id: pageId }),
+      getContentPage({ block_id: pageId }),
+    ]);
 
     return {
       props: {
         respErr: null,
         pageInfoResp,
-        pageContentResp
+        pageContentResp,
       },
     };
-  }catch(e: any) {
+  } catch (e: any) {
     const respErr = jsonDecode(e.body);
     return {
       props: {
         respErr: respErr,
         pageInfoResp: null,
-        pageContentResp: null
+        pageContentResp: null,
       },
     };
   }
@@ -60,12 +61,12 @@ function DevDetailPage(props: any) {
 
   const createDateConv = useMemo(() => {
     return dayjs(createDate * 1000).format('DD/MM/YYYY');
-  }, [createDate]) 
+  }, [createDate]);
 
   const currDate = Date.now();
   const currDateInner = useMemo(() => {
     return dayjs(currDate).format('DD/MM/YYYY');
-  }, [currDate]) 
+  }, [currDate]);
 
   const handleClickBack = () => {
     return router.back();
@@ -73,28 +74,27 @@ function DevDetailPage(props: any) {
 
   if (respErr !== null) {
     return (
-      <div className='pt-8'>
+      <div className="pt-8">
         <AlertError />
       </div>
-    )
+    );
   }
 
   return (
-    <div >
-      <div className="flex justify-start px-8 pt-4">
+    <div>
+      <div className="tw-flex tw-justify-start tw-px-8 tw-pt-4">
         <button onClick={() => handleClickBack()}>Quay lại</button>
       </div>
-      <div className='py-4 px-8'>
-        <span className="text-3xl text-slate-700 font-semibold">
-          {pageTitle}
+      <div className="tw-py-4 tw-px-8">
+        <span className="tw-text-3xl tw-text-slate-700 tw-font-semibold">{pageTitle}</span> <br />
+        <span className="tw-text-sm tw-text-slate-800">
+          Ngày tạo: {createDateConv ?? currDateInner}{' '}
         </span>{' '}
-        <br />
-        <span className="text-sm text-slate-800">Ngày tạo: {createDateConv ?? currDateInner} </span>{' '}
         <br />
         <div>
           {pageInfo?.properties?.tags?.multi_select?.map((item) => {
             return (
-              <span key={item.id} style={{ color: item.color }} className="text-sm">
+              <span key={item.id} style={{ color: item.color }} className="tw-text-sm">
                 {item.name} &nbsp;
               </span>
             );
@@ -107,7 +107,7 @@ function DevDetailPage(props: any) {
           <React.Fragment key={idx}>
             {renderContentConfidePage(item.type, item)}
           </React.Fragment>
-        )
+        );
       })}
     </div>
   );

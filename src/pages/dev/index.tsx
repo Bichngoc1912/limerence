@@ -27,8 +27,8 @@ function DevPage(props: any) {
   const data = props as ArticleListInterface;
 
   return (
-    <div className=" block">
-      <div className="grid gap-4 justify-items-center md:grid-cols-2 grid-cols-1 mt-8 mb-4">
+    <div className=" tw-block">
+      <div className="tw-grid tw-gap-4 tw-justify-items-center md:tw-grid-cols-2 tw-grid-cols-1 tw-mt-8 tw-mb-4">
         {data?.results?.map((item, idx) => {
           return <DevCard key={idx} data={item} />;
         })}

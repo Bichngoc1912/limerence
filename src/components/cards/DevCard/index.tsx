@@ -20,7 +20,7 @@ function DevCard(props: DevCardPropsInterface) {
   return (
     <div
       onClick={() => handleClickViewDetailDev(data?.id)}
-      className="bg-zinc-200 hover:cursor-pointer"
+      className="tw-bg-zinc-200 hover:tw-cursor-pointer"
       style={{
         width: '100%',
         height: '100%',
@@ -28,7 +28,7 @@ function DevCard(props: DevCardPropsInterface) {
         borderBottomRightRadius: 10,
       }}
     >
-      <div style={{ width: '100%', height: 200 }} className="relative hover:opacity-50">
+      <div style={{ width: '100%', height: 200 }} className="tw-relative hover:tw-opacity-50">
         <Image
           layout="fill"
           objectFit="inherit"
@@ -38,12 +38,12 @@ function DevCard(props: DevCardPropsInterface) {
           blurDataURL={APP_CONFIGS.BLUR_IMAGE_BASE64}
         />
       </div>
-      <div className="p-4">
-        <span className="text-lg">
+      <div className="tw-p-4">
+        <span className="tw-text-lg">
           {data?.properties?.title?.rich_text[0]?.plain_text ?? ''}
         </span>{' '}
         <br />
-        <span className="text-xs">
+        <span className="tw-text-xs">
           Ngày tạo: {dayjs(dateCreate * 1000).format('DD/MM/YYYY') ?? converCurrDate}
         </span>{' '}
         <br />
@@ -53,7 +53,7 @@ function DevCard(props: DevCardPropsInterface) {
               <span
                 key={item.id}
                 style={{ color: item.color }}
-                className="text-sm overflow-hidden break-words "
+                className="tw-text-sm tw-overflow-hidden tw-break-words "
               >
                 {item.name}{' '}
               </span>

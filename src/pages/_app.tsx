@@ -3,7 +3,7 @@ import { AppPropsWithLayout } from '@/types/common';
 import { createEmotionCache } from '@/helpers/emotionCachedHelper';
 import NextNProgress from 'nextjs-progressbar';
 import EmptyLayout from '@/components/Layout/EmptyLayout';
-import Head from "next/head";
+import Head from 'next/head';
 
 function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   const Layout = Component.Layout ?? EmptyLayout;

@@ -24,7 +24,7 @@ function BookCard(props: BookCardPropsInterface) {
   return (
     <div
       onClick={() => handleClickViewDetailBook(data?.id)}
-      className="bg-zinc-200 hover:cursor-pointer"
+      className="tw-bg-zinc-200 hover:tw-cursor-pointer"
       style={{
         width: '100%',
         height: '100%',
@@ -32,7 +32,7 @@ function BookCard(props: BookCardPropsInterface) {
         borderBottomRightRadius: 10,
       }}
     >
-      <div style={{ width: '100%', height: 200 }} className="relative hover:opacity-70">
+      <div style={{ width: '100%', height: 200 }} className="tw-relative hover:tw-opacity-70">
         <Image
           layout="fill"
           objectFit="inherit"
@@ -42,12 +42,12 @@ function BookCard(props: BookCardPropsInterface) {
           blurDataURL={APP_CONFIGS.BLUR_IMAGE_BASE64}
         />
       </div>
-      <div className="p-4">
-        <span className="text-lg ">
+      <div className="tw-p-4">
+        <span className="tw-text-lg ">
           {data?.properties?.title?.rich_text[0]?.plain_text ?? ''}
         </span>{' '}
         <br />
-        <span className="text-xs">
+        <span className="tw-text-xs">
           Ngày tạo: {dayjs(dateCreate * 1000).format('DD/MM/YYYY') ?? converCurrDate}
         </span>{' '}
         <br />
@@ -57,7 +57,7 @@ function BookCard(props: BookCardPropsInterface) {
               <span
                 key={item.id}
                 style={{ color: item.color }}
-                className="text-sm overflow-hidden break-words "
+                className="tw-text-sm tw-overflow-hidden tw-break-words "
               >
                 {item.name}{' '}
               </span>

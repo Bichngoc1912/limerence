@@ -11,7 +11,7 @@ export async function getServerSideProps() {
 
 function AboutPage(props: any) {
   return (
-    <div className="flex py-4">
+    <div className="tw-flex tw-py-4">
       <div style={{ width: '50%', height: 200 }} className="relative">
         <Image
           layout="fill"
@@ -23,7 +23,7 @@ function AboutPage(props: any) {
           loading="lazy"
         />
       </div>
-      <div className="p-4 w-1/2 flex items-center content-center justify-center">
+      <div className="tw-p-4 tw-w-1/2 tw-flex tw-items-center tw-content-center tw-justify-center">
         <span>...nothing...</span>
       </div>
     </div>

@@ -12,25 +12,26 @@ import { jsonDecode } from '@/helpers/urlHelper';
 
 export async function getServerSideProps(context: any) {
   const pageId = context?.params?.id ?? '';
-  try{
+  try {
     const [pageInfoResp, pageContentResp] = await Promise.all([
-      getPageInfo({ page_id: pageId }), getContentPage({ block_id: pageId })
-    ])
+      getPageInfo({ page_id: pageId }),
+      getContentPage({ block_id: pageId }),
+    ]);
 
     return {
       props: {
         respErr: null,
         pageInfoResp,
-        pageContentResp
+        pageContentResp,
       },
     };
-  }catch(e: any) {
+  } catch (e: any) {
     const respErr = jsonDecode(e.body);
     return {
       props: {
         respErr: respErr,
         pageInfoResp: null,
-        pageContentResp: null
+        pageContentResp: null,
       },
     };
   }
@@ -53,50 +54,43 @@ function ConfidePage(props: any) {
   const tagsList = useMemo(() => {
     return pageInfo?.properties?.tags?.multi_select?.map((item, idx) => {
       return (
-        <span
-          key={idx + 'idx'}
-          style={{ zIndex: 1, color: item.color, marginRight: 4 }}
-        >
+        <span key={idx + 'idx'} style={{ zIndex: 1, color: item.color, marginRight: 4 }}>
           {item.name}
         </span>
       );
-    })
+    });
   }, [pageInfo]);
 
   const createDate = useMemo(() => {
     return dayjs(pageInfo?.created_time ?? 0).unix();
-  }, [pageInfo])
+  }, [pageInfo]);
 
   if (respErr !== null) {
     return (
-      <div className='pt-8'>
+      <div className="pt-8">
         <AlertError />
       </div>
-    )
+    );
   }
 
   return (
-    <div className="pt-8">
-      <div className="mb-4">
-        <h2 className="text-3xl mb-4 text-slate-700 font-semibold">
-          {pageTitle}
-        </h2>
-        <div className="flex">
-          {tagsList}
-        </div>
+    <div className="tw-pt-8">
+      <div className="tw-mb-4">
+        <h2 className="tw-text-3xl tw-mb-4 tw-text-slate-700 tw-font-semibold">{pageTitle}</h2>
+        <div className="tw-flex">{tagsList}</div>
         <div>
-          <span className="text-sm gray-700">
+          <span className="tw-text-sm tw-gray-700">
             Ngày tạo: {dayjs(createDate * 1000).format('DD/MM/YYYY')}
           </span>
         </div>
       </div>
-      <div className="py-2">
+      <div className="tw-py-2">
         {contentPageInfo?.results?.map((item, idx) => {
           return (
             <React.Fragment key={idx}>
               {renderContentConfidePage(item.type, item)}
             </React.Fragment>
-          )
+          );
         })}
       </div>
     </div>

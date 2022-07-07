@@ -1,5 +1,6 @@
 ## CHANGELOG
 
+- [improve] Bổ sung prefix cho toàn bộ class trong source
 ## v1.2.3 - 04/07/2022
 
 - [improve] change logo

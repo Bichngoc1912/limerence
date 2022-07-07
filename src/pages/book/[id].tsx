@@ -11,28 +11,29 @@ import AlertError from '@/components/Alert/AlertError';
 
 export async function getServerSideProps(context: any) {
   const pageId = context?.params?.id ?? '';
-  try{
+  try {
     const [pageInfoResp, pageContentResp] = await Promise.all([
-      getPageInfo({ page_id: pageId }), getContentPage({ block_id: pageId })
-    ])
-    
+      getPageInfo({ page_id: pageId }),
+      getContentPage({ block_id: pageId }),
+    ]);
+
     if (!pageInfoResp) {
-      throw new Error(pageInfoResp)
+      throw new Error(pageInfoResp);
     }
 
     return {
       props: {
         respErr: null,
         pageInfoResp,
-        pageContentResp
+        pageContentResp,
       },
     };
-  }catch(e: any) {
+  } catch (e: any) {
     return {
       props: {
         respErr: JSON.stringify(e),
         pageInfoResp: null,
-        pageContentResp: null
+        pageContentResp: null,
       },
     };
   }
@@ -51,19 +52,19 @@ function BookDetailPage(props: any) {
   const createDate = useMemo(() => {
     return dayjs(pageInfo?.properties?.time?.created_time ?? 0).unix();
   }, [pageInfo]);
-  
+
   const pageTitle = useMemo(() => {
-    return pageInfo?.properties?.title?.rich_text[0]?.plain_text ?? ''
+    return pageInfo?.properties?.title?.rich_text[0]?.plain_text ?? '';
   }, [pageInfo]);
 
   const tagsList = useMemo(() => {
     return pageInfo?.properties?.tags?.multi_select?.map((item) => {
       return (
-        <span key={item.id} style={{ color: item.color }} className="text-sm">
+        <span key={item.id} style={{ color: item.color }} className="tw-text-sm">
           {item.name} &nbsp;
         </span>
       );
-    })
+    });
   }, [pageInfo]);
 
   const createDateConv = useMemo(() => {
@@ -79,10 +80,10 @@ function BookDetailPage(props: any) {
 
   if (respErr !== null) {
     return (
-      <div className='pt-8'>
+      <div className="tw-pt-8">
         <AlertError />
       </div>
-    )
+    );
   }
 
   const handleClickBack = () => {
@@ -90,28 +91,25 @@ function BookDetailPage(props: any) {
   };
 
   return (
-    <div className="mt-4">
-      <div className="flex justify-start px-8 text-slate-800">
+    <div className="tw-mt-4">
+      <div className="tw-flex tw-justify-start tw-px-8 tw-text-slate-800">
         <button onClick={() => handleClickBack()}>Quay lại</button>
       </div>
-      <div className='py-4 pt-0 px-8'>
-        <span className="text-3xl text-slate-700 font-semibold">
-          {pageTitle}
+      <div className="tw-py-4 tw-pt-0 tw-px-8">
+        <span className="tw-text-3xl tw-text-slate-700 tw-font-semibold">{pageTitle}</span> <br />
+        <span className="tw-text-sm tw-text-slate-800">
+          Ngày tạo: {createDateConv ?? currDateInner}{' '}
         </span>{' '}
         <br />
-        <span className="text-sm text-slate-800">Ngày tạo: {createDateConv ?? currDateInner} </span>{' '}
-        <br />
-        <div>
-          {tagsList}
-        </div>
+        <div>{tagsList}</div>
       </div>
       <div>
         {contentPageInfo?.results?.map((item, idx) => {
           return (
             <React.Fragment key={idx}>
               {renderContentConfidePage(item.type, item)}
-            </React.Fragment> 
-          )
+            </React.Fragment>
+          );
         })}
       </div>
     </div>

@@ -42,7 +42,7 @@ function Header() {
   const menuList = useMemo(() => {
     return menuHeaderList;
   }, []);
-  
+
   const renderMenuList = menuList.map((item) => {
     return (
       <div
@@ -67,55 +67,50 @@ function Header() {
   };
 
   return (
-    <div className="h-16 border-b border-gray-300 z-20 w-full bg-gray-50 flex justify-center items-center sticky top-0">
-      <div className="max-w-4xl pl-2 pr-2 w-full my-0 mx-auto flex justify-between items-center">
+    <div className="tw-h-16 tw-border-b tw-border-gray-300 tw-z-20 tw-w-full tw-bg-gray-50 tw-flex tw-justify-center tw-items-center tw-sticky tw-top-0">
+      <div className="tw-max-w-4xl tw-pl-2 tw-pr-2 tw-w-full tw-my-0 tw-mx-auto tw-flex tw-justify-between tw-items-center">
         <div
-          className="font-[ms-madi] text-lg  text-blue-500 hover:cursor-pointer"
+          className="tw-font-[ms-madi] tw-text-lg  tw-text-blue-500 hover:tw-cursor-pointer"
           onClick={handleClickLogo}
         >
           ._Limerence_.
         </div>
-        <div className='grid grid-cols-3 gap-2'>
-          <div className='hover:rounded-full hover:bg-gray-300 hover:cursor-pointer w-8 h-8 content-center flex justify-center'>
+        <div className="tw-grid tw-grid-cols-3 tw-gap-2">
+          <div className="hover:tw-rounded-full hover:tw-bg-gray-300 hover:tw-cursor-pointer tw-w-8 h-8 content-center tw-flex tw-justify-center">
             <Image
               src={facebookIcon}
               width={20}
               height={20}
-              alt='facebook icon'
-              objectFit='contain'
+              alt="facebook icon"
+              objectFit="contain"
             />
           </div>
 
-          <div className='hover:rounded-full hover:bg-gray-300 hover:cursor-pointer w-8 h-8 content-center flex justify-center'>
+          <div className="hover:tw-rounded-full hover:tw-bg-gray-300 hover:tw-cursor-pointer tw-w-8 h-8 tw-content-center tw-flex tw-justify-center">
             <Image
               src={githubIcon}
               width={20}
               height={20}
-              alt='github icon'
-              objectFit='contain'
+              alt="github icon"
+              objectFit="contain"
             />
           </div>
 
-          <div className='hover:rounded-full hover:bg-gray-300 hover:cursor-pointer w-8 h-8 content-center flex justify-center'>
+          <div className="hover:tw-rounded-full hover:tw-bg-gray-300 hover:tw-cursor-pointer tw-w-8 tw-h-8 tw-content-center tw-flex tw-justify-center">
             <Image
               src={linkedinIcon}
               width={20}
               height={20}
-              alt='Linkedin icon'
-              objectFit='contain'
+              alt="Linkedin icon"
+              objectFit="contain"
             />
           </div>
         </div>
 
-        <div className='hover:cursor-pointer'>
-          <Image
-            src={menuIcon}
-            alt='menu icon'
-            width={20}
-            height={20}
-          />
+        <div className="hover:tw-cursor-pointer">
+          <Image src={menuIcon} alt="menu icon" width={20} height={20} />
         </div>
-        {/* <div className="flex justify-between items-center">{renderMenuList}</div> */}
+        {/* <div className="tw-flex justify-between items-center">{renderMenuList}</div> */}
       </div>
     </div>
   );

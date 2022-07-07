@@ -7,11 +7,13 @@ export const generateHomeRouter = (): RouterParamType => {
   return {
     routerName,
     pathname: ROUTER_PATH_NAME[routerName],
-    asPath: ROUTER_PATH_NAME[routerName]
-  }
-}
+    asPath: ROUTER_PATH_NAME[routerName],
+  };
+};
 
-export const generateDevDetailRouter = (param?: GeneratePageDetailRouterInterface): RouterParamType => {
+export const generateDevDetailRouter = (
+  param?: GeneratePageDetailRouterInterface,
+): RouterParamType => {
   if (typeof param?.id !== 'string' || !param.id) return;
 
   const routerName = ROUTER_NAME.DEV_DETAIL;
@@ -21,25 +23,29 @@ export const generateDevDetailRouter = (param?: GeneratePageDetailRouterInterfac
   return {
     routerName,
     pathname,
-    asPath
-  }
-}
+    asPath,
+  };
+};
 
-export const generateBookDetailRouter = (param?: GeneratePageDetailRouterInterface): RouterParamType => {
+export const generateBookDetailRouter = (
+  param?: GeneratePageDetailRouterInterface,
+): RouterParamType => {
   if (typeof param?.id !== 'string' || !param.id) return;
 
   const routerName = ROUTER_NAME.BOOK_DETAIL;
   const pathname = ROUTER_PATH_NAME[routerName];
   const asPath = pathname.replace('[id]', param.id);
-  
+
   return {
     routerName,
     pathname,
-    asPath
-  }
-}
+    asPath,
+  };
+};
 
-export const generateConfideDetailRouter = (param?: GeneratePageDetailRouterInterface): RouterParamType => {
+export const generateConfideDetailRouter = (
+  param?: GeneratePageDetailRouterInterface,
+): RouterParamType => {
   if (typeof param?.id !== 'string' || !param.id) return;
 
   const routerName = ROUTER_NAME.CONFIDE_DETAIL;
@@ -49,6 +55,6 @@ export const generateConfideDetailRouter = (param?: GeneratePageDetailRouterInte
   return {
     routerName,
     pathname,
-    asPath
-  }
-}
+    asPath,
+  };
+};

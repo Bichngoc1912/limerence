@@ -10,8 +10,8 @@ export async function getServerSideProps() {
 }
 function ChorePage() {
   return (
-    <div className="text-center p-4">
-      <div style={{ width: '100%', height: 200 }} className="relative mb-4">
+    <div className="tw-text-center tw-p-4">
+      <div style={{ width: '100%', height: 200 }} className="tw-relative tw-mb-4">
         <Image
           src={lazyImage}
           layout="fill"

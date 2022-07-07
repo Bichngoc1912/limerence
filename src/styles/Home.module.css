@@ -5,16 +5,16 @@
 .main {
   min-height: 100vh;
   padding: 4rem 0;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
+  tw-flex: 1;
+  display: tw-flex;
+  tw-flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
 .footer {
-  display: flex;
-  flex: 1;
+  display: tw-flex;
+  tw-flex: 1;
   padding: 2rem 0;
   border-top: 1px solid #eaeaea;
   justify-content: center;
@@ -22,10 +22,10 @@
 }
 
 .footer a {
-  display: flex;
+  display: tw-flex;
   justify-content: center;
   align-items: center;
-  flex-grow: 1;
+  tw-flex-grow: 1;
 }
 
 .title a {
@@ -66,10 +66,10 @@
 }
 
 .grid {
-  display: flex;
+  display: tw-flex;
   align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
+  tw-flex-wrap: wrap;
   max-width: 800px;
 }
 
@@ -111,6 +111,6 @@
 @media (max-width: 600px) {
   .grid {
     width: 100%;
-    flex-direction: column;
+    tw-flex-direction: column;
   }
 }

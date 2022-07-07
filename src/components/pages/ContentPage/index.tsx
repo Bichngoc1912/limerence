@@ -1,14 +1,14 @@
-import { ResultInterface } from "@/services/api/getContentPage";
+import { ResultInterface } from '@/services/api/getContentPage';
 import { APP_CONFIGS } from '@/configs/app';
 import Image from 'next/image';
 import bookImage from '@/assets/images/bg-content-page.jpg';
 
 export const renderContentConfidePage = (type: string, dataRender: ResultInterface) => {
-  switch(type) {
-    case 'image': 
+  switch (type) {
+    case 'image':
       return (
-        <div className="max-w-4xl px-4 mx-auto my-4">
-          <div className="bg-white overflow-hidden">
+        <div className="tw-max-w-4xl tw-px-4 tw-mx-auto tw-my-4">
+          <div className="tw-bg-white tw-overflow-hidden">
             <Image
               width={900}
               height={450}
@@ -22,16 +22,16 @@ export const renderContentConfidePage = (type: string, dataRender: ResultInterfa
             />
           </div>
         </div>
-      )
-    case 'paragraph': 
+      );
+    case 'paragraph':
       return (
-        <div className="px-4 mb-4">
-          <p className='text-slate-800'>
+        <div className="tw-px-4 tw-mb-4">
+          <p className="tw-text-slate-800">
             {dataRender.paragraph?.rich_text?.map((item, idx) => {
               return (
                 <span
                   key={idx + 'n'}
-                  style={{ 
+                  style={{
                     color: item.annotations?.color,
                     fontWeight: item.annotations?.bold ? 'bold' : 'normal',
                     fontStyle: item.annotations?.italic ? 'italic' : 'normal',
@@ -39,22 +39,18 @@ export const renderContentConfidePage = (type: string, dataRender: ResultInterfa
                 >
                   {item.plain_text}
                 </span>
-              )
+              );
             })}{' '}
           </p>
         </div>
-      )
-    case 'bulleted_list_item': 
+      );
+    case 'bulleted_list_item':
       return (
-        <ul className='text-slate-800 mx-16 list-disc'>
+        <ul className="tw-text-slate-800 tw-mx-16 tw-list-disc">
           {dataRender.bulleted_list_item?.rich_text?.map((item, idx) => {
-            return (
-              <li key={idx + 'k'}>
-                 {item.plain_text}
-              </li>
-            )
+            return <li key={idx + 'k'}>{item.plain_text}</li>;
           })}{' '}
         </ul>
-      )
+      );
   }
-}
+};

@@ -7,7 +7,7 @@ export async function getServerSideProps() {
 }
 
 function HomePage(props: any) {
-  return <div className="flex ">confide page</div>;
+  return <div className="tw-flex ">confide page</div>;
 }
 
 HomePage.Layout = MainLayout;
