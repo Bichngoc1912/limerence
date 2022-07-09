@@ -52,6 +52,7 @@ function Sidebar(props: SidebarProps) {
       <div
         key={item.id}
         className="tw-pl-1 tw-pr-1 tw-h-8 tw-flex tw-items-center hover:tw-bg-gray-100 hover:tw-cursor-pointer tw-w-full tw-text-sm md:tw-text-base md:tw-pl-4 md:tw-pr-4 tw-text-gray-900"
+        onClick={() => router.push(`${item.href}`)}
       >
         <Link href={item.href}>
           <a
