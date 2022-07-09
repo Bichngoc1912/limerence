@@ -28,7 +28,10 @@ function DevCard(props: DevCardPropsInterface) {
         borderBottomRightRadius: 10,
       }}
     >
-      <div style={{ width: '100%', height: 200 }} className="tw-relative hover:tw-opacity-50">
+      <div
+        style={{ width: '100%', height: 200 }}
+        className="tw-relative hover:tw-opacity-50"
+      >
         <Image
           layout="fill"
           objectFit="inherit"

@@ -76,7 +76,9 @@ function ConfidePage(props: any) {
   return (
     <div className="tw-pt-8">
       <div className="tw-mb-4">
-        <h2 className="tw-text-3xl tw-mb-4 tw-text-slate-700 tw-font-semibold">{pageTitle}</h2>
+        <h2 className="tw-text-3xl tw-mb-4 tw-text-slate-700 tw-font-semibold">
+          {pageTitle}
+        </h2>
         <div className="tw-flex">{tagsList}</div>
         <div>
           <span className="tw-text-sm tw-gray-700">

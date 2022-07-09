@@ -32,7 +32,10 @@ function BookCard(props: BookCardPropsInterface) {
         borderBottomRightRadius: 10,
       }}
     >
-      <div style={{ width: '100%', height: 200 }} className="tw-relative hover:tw-opacity-70">
+      <div
+        style={{ width: '100%', height: 200 }}
+        className="tw-relative hover:tw-opacity-70"
+      >
         <Image
           layout="fill"
           objectFit="inherit"

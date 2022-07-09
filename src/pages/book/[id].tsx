@@ -96,7 +96,10 @@ function BookDetailPage(props: any) {
         <button onClick={() => handleClickBack()}>Quay lại</button>
       </div>
       <div className="tw-py-4 tw-pt-0 tw-px-8">
-        <span className="tw-text-3xl tw-text-slate-700 tw-font-semibold">{pageTitle}</span> <br />
+        <span className="tw-text-3xl tw-text-slate-700 tw-font-semibold">
+          {pageTitle}
+        </span>{' '}
+        <br />
         <span className="tw-text-sm tw-text-slate-800">
           Ngày tạo: {createDateConv ?? currDateInner}{' '}
         </span>{' '}

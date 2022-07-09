@@ -3,7 +3,6 @@ import BlogCard from '@/components/cards/BlogCard';
 import { getArticleList } from '@/services/api/getArticleList';
 import { useRouter } from 'next/router';
 import { generateConfideDetailRouter } from '@/services/bussiness/router/generateRouter';
-import { useState } from 'react';
 
 export async function getServerSideProps() {
   const reqParam = {

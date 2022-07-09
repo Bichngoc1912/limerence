@@ -7,7 +7,7 @@ export const renderContentConfidePage = (type: string, dataRender: ResultInterfa
   switch (type) {
     case 'image':
       return (
-        <div className="tw-max-w-4xl tw-px-4 tw-mx-auto tw-my-4">
+        <div className="tw-max-w-6xl tw-px-4 tw-mx-auto tw-my-4">
           <div className="tw-bg-white tw-overflow-hidden">
             <Image
               width={900}
@@ -17,7 +17,7 @@ export const renderContentConfidePage = (type: string, dataRender: ResultInterfa
               placeholder="blur"
               src={dataRender?.image?.file?.url ?? bookImage}
               layout="responsive"
-              objectFit="cover"
+              objectFit="contain"
               alt="img..."
             />
           </div>
