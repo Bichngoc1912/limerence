@@ -19,7 +19,7 @@ export const renderContentConfidePage = (type: string, dataRender: ResultInterfa
               layout="responsive"
               objectFit="cover"
               alt="img..."
-              className='tw-rounded-xl'
+              className="tw-rounded-xl"
             />
           </div>
         </div>

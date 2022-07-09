@@ -36,18 +36,27 @@ function HomePage(props: any) {
   };
 
   const renderArticleList = props?.results?.map((item: any, idx: number) => {
-    return <CardItem key={idx} data={item} handleRedirectToDetail={handleClickViewDetailPageItem} />
-  })
+    return (
+      <CardItem
+        key={idx}
+        data={item}
+        handleRedirectToDetail={handleClickViewDetailPageItem}
+      />
+    );
+  });
 
   return (
-    <div  className="tw-block">
-      <div className='tw-mb-4'>
-        <span className='tw-text-blue-500 tw-font-semibold'> CONFIDE - Tâm sự linh tinh </span>
+    <div className="tw-block">
+      <div className="tw-mb-4">
+        <span className="tw-text-blue-500 tw-font-semibold">
+          {' '}
+          CONFIDE - Tâm sự linh tinh{' '}
+        </span>
       </div>
 
-      <div className='sm:tw-grid tw-block lg:tw-grid-cols-3  sm:tw-grid-cols-2 sm:tw-gap-4'>
-      {renderArticleList}
-    </div>
+      <div className="sm:tw-grid tw-block lg:tw-grid-cols-3  sm:tw-grid-cols-2 sm:tw-gap-4">
+        {renderArticleList}
+      </div>
     </div>
   );
 }

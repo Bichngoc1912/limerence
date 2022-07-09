@@ -100,13 +100,14 @@ function BookDetailPage(props: any) {
         </span>{' '}
         <br />
         <span className="tw-text-sm tw-text-slate-800">
-          Created at: {createDateConv ?? currDateInner}{' - '}
+          Created at: {createDateConv ?? currDateInner}
+          {' - '}
           Updated at: {updatedAtConv ?? currDateInner}
         </span>{' '}
         <br />
         <div>{tagsList}</div>
       </div>
-      <div className=' tw-block'>
+      <div className=" tw-block">
         {contentPageInfo?.results?.map((item, idx) => {
           return (
             <React.Fragment key={idx}>

@@ -29,23 +29,32 @@ export async function getServerSideProps() {
 function ChorePage(props: any) {
   const data = props as ArticleListInterface;
   const router = useRouter();
-  
+
   const handleClickViewDetailChore = (id: string) => {
     router.push(`/chore/${id}`);
   };
 
   const renderArticleList = props?.results?.map((item: any, idx: number) => {
-    return <CardItem key={idx} data={item} handleRedirectToDetail={handleClickViewDetailChore} />
-  })
+    return (
+      <CardItem
+        key={idx}
+        data={item}
+        handleRedirectToDetail={handleClickViewDetailChore}
+      />
+    );
+  });
 
   return (
     <div className="tw-block">
-      <div className='tw-mb-4'>
-        <span className='tw-text-blue-500 tw-font-semibold'> CHORE - Những điều nhỏ nhặt </span>
+      <div className="tw-mb-4">
+        <span className="tw-text-blue-500 tw-font-semibold">
+          {' '}
+          CHORE - Những điều nhỏ nhặt{' '}
+        </span>
       </div>
       <div className="sm:tw-grid tw-block lg:tw-grid-cols-3  sm:tw-grid-cols-2 sm:tw-gap-4">
         {renderArticleList}
-      </div> 
+      </div>
     </div>
   );
 }

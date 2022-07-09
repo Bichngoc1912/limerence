@@ -55,8 +55,8 @@ function ConfidePage(props: any) {
   const tagsList = useMemo(() => {
     return pageInfo?.properties?.tags?.multi_select?.map((item, idx) => {
       return (
-        <div key={idx + 'idx'} className='tw-mr-2'>
-          <span  style={{ zIndex: 1, color: item.color, marginRight: 4 }}>
+        <div key={idx + 'idx'} className="tw-mr-2">
+          <span style={{ zIndex: 1, color: item.color, marginRight: 4 }}>
             {item.name}
           </span>
         </div>
@@ -70,7 +70,7 @@ function ConfidePage(props: any) {
 
   const updatedAt = useMemo(() => {
     return dayjs(pageInfo?.properties.updated_at.last_edited_time ?? 0).unix();
-  }, [pageInfo])
+  }, [pageInfo]);
 
   if (respErr !== null) {
     return (

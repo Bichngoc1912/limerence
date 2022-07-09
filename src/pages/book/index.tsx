@@ -38,14 +38,23 @@ function BookPage(props: any) {
   };
 
   return (
-    <div className='tw-block'>
-      <div className='tw-mb-4'>
-        <span className='tw-text-blue-500 tw-font-semibold'> BOOK - bngoc tri thức :))  </span>
+    <div className="tw-block">
+      <div className="tw-mb-4">
+        <span className="tw-text-blue-500 tw-font-semibold">
+          {' '}
+          BOOK - bngoc tri thức :)){' '}
+        </span>
       </div>
 
       <div className="sm:tw-grid tw-block lg:tw-grid-cols-3  sm:tw-grid-cols-2 sm:tw-gap-4">
         {data?.results?.map((item, idx) => {
-          return <CardItem key={idx} data={item} handleRedirectToDetail={handleClickViewDetailBook}/>;
+          return (
+            <CardItem
+              key={idx}
+              data={item}
+              handleRedirectToDetail={handleClickViewDetailBook}
+            />
+          );
         })}
       </div>
     </div>

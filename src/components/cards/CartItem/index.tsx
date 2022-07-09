@@ -10,7 +10,7 @@ import { generateBookDetailRouter } from '@/services/bussiness/router/generateRo
 function CardItem(props: CardItemProps) {
   const router = useRouter();
 
-  const { data , handleRedirectToDetail} = props;
+  const { data, handleRedirectToDetail } = props;
   const currDate = Date.now();
   const converCurrDate = dayjs(currDate).format('DD/MM/YYYY');
   const dateCreate = dayjs(data?.properties?.time?.created_time ?? 0).unix();
@@ -45,7 +45,7 @@ function CardItem(props: CardItemProps) {
           alt="img...."
           placeholder="blur"
           blurDataURL={APP_CONFIGS.BLUR_IMAGE_BASE64}
-          className='tw-rounded-xl'
+          className="tw-rounded-xl"
         />
       </div>
       <div className="tw-p-4 ">
@@ -54,23 +54,20 @@ function CardItem(props: CardItemProps) {
         </span>{' '}
         <br />
         <span className="tw-text-xs tw-text-slate-600">
-          Created at: {dayjs(dateCreate * 1000).format('DD/MM/YYYY') ?? converCurrDate}
-          {' '} - Updated at: {dayjs(updatedAt * 1000).format('DD/MM/YYYY') ?? converCurrDate}
+          Created at: {dayjs(dateCreate * 1000).format('DD/MM/YYYY') ?? converCurrDate} -
+          Updated at: {dayjs(updatedAt * 1000).format('DD/MM/YYYY') ?? converCurrDate}
         </span>{' '}
         <br />
-        <div className='tw-flex'>
+        <div className="tw-flex">
           {data?.properties?.tags?.multi_select?.map((item) => {
             return (
-              <div 
-                key={item.id}
-                className={`tw-bg-${item.color}-200 tw-mr-4`}
-              >
-              <span
-                style={{ color: item.color }}
-                className={`tw-text-sm tw-overflow-hidden tw-break-words `}
-              >
-                {item.name}{' '}
-              </span>
+              <div key={item.id} className={`tw-bg-${item.color}-200 tw-mr-4`}>
+                <span
+                  style={{ color: item.color }}
+                  className={`tw-text-sm tw-overflow-hidden tw-break-words `}
+                >
+                  {item.name}{' '}
+                </span>
               </div>
             );
           })}

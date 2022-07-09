@@ -33,14 +33,23 @@ function DevPage(props: any) {
   };
 
   return (
-    <div className='tw-block'>
-      <div className='tw-mb-4'>
-        <span className='tw-text-blue-500 tw-font-semibold'> DEVELOPER - Làm dev vui thấy bà  </span>
+    <div className="tw-block">
+      <div className="tw-mb-4">
+        <span className="tw-text-blue-500 tw-font-semibold">
+          {' '}
+          DEVELOPER - Làm dev vui thấy bà{' '}
+        </span>
       </div>
 
       <div className="sm:tw-grid tw-block lg:tw-grid-cols-3  sm:tw-grid-cols-2 sm:tw-gap-4">
         {data?.results?.map((item, idx) => {
-          return <CardItem key={idx} data={item} handleRedirectToDetail={handleClickViewDetailDev} />;
+          return (
+            <CardItem
+              key={idx}
+              data={item}
+              handleRedirectToDetail={handleClickViewDetailDev}
+            />
+          );
         })}
       </div>
     </div>
