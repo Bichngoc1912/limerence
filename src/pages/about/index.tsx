@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import aboutImg from '@/assets/images/avatar.jpg';
-import MainLayout from '@/components/Layout/MainLayout';
+import EmptyLayout from '@/components/Layout/EmptyLayout';
 import { APP_CONFIGS } from '@/configs/app';
 
 export async function getServerSideProps() {
@@ -11,10 +11,9 @@ export async function getServerSideProps() {
 
 function AboutPage(props: any) {
   return (
-    <div className="tw-flex tw-py-4">
-      <div style={{ width: '50%', height: 200 }} className="relative">
+    <div className="tw-grid tw-py-4 tw-grid-cols-48">
+      <div className="relative">
         <Image
-          layout="fill"
           objectFit="contain"
           src={aboutImg}
           alt="avatar img..."
@@ -30,6 +29,6 @@ function AboutPage(props: any) {
   );
 }
 
-AboutPage.Layout = MainLayout;
+AboutPage.Layout = EmptyLayout;
 
 export default AboutPage;

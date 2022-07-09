@@ -11,7 +11,7 @@ function Header(props: HeaderProps) {
   const { setIsOpenSidebar, isOpenSidebar } = props;
 
   const router = useRouter();
-  
+
   const handleClickLogo = () => {
     return router.push('/');
   };
@@ -25,41 +25,55 @@ function Header(props: HeaderProps) {
         >
           .bngocblog.
         </div>
-        <div className="tw-grid tw-grid-cols-3 tw-gap-2">
-          <div className="hover:tw-rounded-full hover:tw-bg-gray-300 hover:tw-cursor-pointer tw-w-8 h-8 content-center tw-flex tw-justify-center">
-            <Image
-              src={facebookIcon}
-              width={20}
-              height={20}
-              alt="facebook icon"
-              objectFit="contain"
-            />
+        <div className='tw-flex'>
+          <div className="tw-grid tw-grid-cols-3 tw-gap-2 tw-mr-8">
+            <div className="hover:tw-rounded-full hover:tw-bg-gray-300 hover:tw-cursor-pointer tw-w-8 h-8 content-center tw-flex">
+              <a href='https://www.facebook.com/profile.php?id=100039248978194' className='tw-flex tw-justify-center' target={'_blank'} rel="noreferrer">
+                <div  className='tw-flex tw-justify-center'>
+                  <Image
+                    src={facebookIcon}
+                    width={20}
+                    height={20}
+                    alt="facebook icon"
+                    objectFit="contain"
+                  />
+                </div>
+              </a>
+            </div>
+
+            <div className="hover:tw-rounded-full hover:tw-bg-gray-300 hover:tw-cursor-pointer tw-w-8 h-8 tw-content-center tw-flex tw-justify-center">
+              <a href="https://github.com/Bichngoc1912" className='tw-flex tw-justify-center' target={'_blank'} rel="noreferrer">
+                <Image
+                  src={githubIcon}
+                  width={20}
+                  height={20}
+                  alt="github icon"
+                  objectFit="contain"
+                />
+              </a>
+            </div>
+
+            <div className="hover:tw-rounded-full hover:tw-bg-gray-300 hover:tw-cursor-pointer tw-w-8 tw-h-8 tw-content-center tw-flex tw-justify-center">
+              <a href="https://www.linkedin.com/in/bich-ngoc-b36929200/"  className='tw-flex tw-justify-center' target={'_blank'} rel="noreferrer">
+                <Image
+                  src={linkedinIcon}
+                  width={20}
+                  height={20}
+                  alt="Linkedin icon"
+                  objectFit="contain"
+                />
+              </a>
+            </div>
           </div>
 
-          <div className="hover:tw-rounded-full hover:tw-bg-gray-300 hover:tw-cursor-pointer tw-w-8 h-8 tw-content-center tw-flex tw-justify-center">
-            <Image
-              src={githubIcon}
-              width={20}
-              height={20}
-              alt="github icon"
-              objectFit="contain"
-            />
-          </div>
-
-          <div className="hover:tw-rounded-full hover:tw-bg-gray-300 hover:tw-cursor-pointer tw-w-8 tw-h-8 tw-content-center tw-flex tw-justify-center">
-            <Image
-              src={linkedinIcon}
-              width={20}
-              height={20}
-              alt="Linkedin icon"
-              objectFit="contain"
-            />
+          <div
+            className="hover:tw-cursor-pointer tw-flex tw-justify-center tw-items-center"
+            onClick={() => setIsOpenSidebar(!isOpenSidebar)}
+          >
+            <Image src={menuIcon} alt="menu icon" width={20} height={20} />
           </div>
         </div>
-
-        <div className="hover:tw-cursor-pointer" onClick={() => setIsOpenSidebar(!isOpenSidebar)}>
-          <Image src={menuIcon} alt="menu icon" width={20} height={20} />
-        </div>
+        
       </div>
     </div>
   );

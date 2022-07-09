@@ -8,7 +8,6 @@ const BLUR_IMAGE_BASE64 =
 const APP_ENV = process.env.NEXT_PUBLIC_ENV ?? 'production';
 const APP_VERSION = process.env.NEXT_PUBLIC_VERSION ?? '';
 
-console.log('process.env.NEXT_ENV', process.env.NEXT_PUBLIC_ENV);
 export const APP_CONFIGS = {
   API_BASE_URL,
   DATABASE_ID,

@@ -87,6 +87,11 @@ export interface GetPageInfoResponseInterface {
       type: string;
       title: RichTextInterface[];
     };
+    updated_at: {
+      id: string;
+      last_edited_time: string;
+      type: string;
+    };
   };
   url: string;
 }

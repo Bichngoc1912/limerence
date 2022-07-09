@@ -7,7 +7,13 @@ module.exports = {
   ],
   theme: {
     extend: {
-      
+      gridTemplateColumns: {
+        '48': '4fr 8fr'
+      },
+      color: {
+        'orange': '#7C2D12',
+        'brown': '#7F1D1D',
+      }
     },
     fontFamily: {
       'ms-madi': ['"Open Sans"', 'cursive'],

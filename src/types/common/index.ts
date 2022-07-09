@@ -87,6 +87,11 @@ export interface PropertiesInterface {
     rich_text: RichTextInterface[];
     type: string;
   };
+  updated_at: {
+    id: string;
+    last_edited_time: string;
+    type: string;
+  };
   url: string;
 }
 export interface ArticleItemInterface {

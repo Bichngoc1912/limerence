@@ -2,6 +2,8 @@
 
 - [improve] Bổ sung prefix cho toàn bộ class trong source
 - [improve] Thay đổi bố cục của header
+- [feature] Thay đổi bố cục của HomeLayout, MainLayout, EmptyLayout  
+- [feature] Call api cho mục chore
 
 ## v1.2.3 - 04/07/2022
 

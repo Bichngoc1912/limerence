@@ -7,8 +7,8 @@ export const renderContentConfidePage = (type: string, dataRender: ResultInterfa
   switch (type) {
     case 'image':
       return (
-        <div className="tw-max-w-6xl tw-px-4 tw-mx-auto tw-my-4">
-          <div className="tw-bg-white tw-overflow-hidden">
+        <div className="tw-mb-4">
+          <div className="tw-bg-gray-100 tw-overflow-hidden">
             <Image
               width={900}
               height={450}
@@ -17,15 +17,16 @@ export const renderContentConfidePage = (type: string, dataRender: ResultInterfa
               placeholder="blur"
               src={dataRender?.image?.file?.url ?? bookImage}
               layout="responsive"
-              objectFit="contain"
+              objectFit="cover"
               alt="img..."
+              className='tw-rounded-xl'
             />
           </div>
         </div>
       );
     case 'paragraph':
       return (
-        <div className="tw-px-4 tw-mb-4">
+        <div className="tw-px-4 tw-flex tw-items-center tw-mb-4">
           <p className="tw-text-slate-800">
             {dataRender.paragraph?.rich_text?.map((item, idx) => {
               return (

@@ -3,12 +3,13 @@ import { getPageInfo } from '@/services/api/getPageInfo';
 import { getContentPage } from '@/services/api/getContentPage';
 import { GetContentPageResponseInterface } from '@/services/api/getContentPage';
 import { GetPageInfoResponseInterface } from '@/services/api/getPageInfo';
-import MainLayout from '@/components/Layout/MainLayout';
+import HomeLayout from '@/components/Layout/HomeLayout';
 import dayjs from 'dayjs';
 import { renderContentConfidePage } from '@/components/pages/ContentPage';
 import React from 'react';
 import AlertError from '@/components/Alert/AlertError';
 import { jsonDecode } from '@/helpers/urlHelper';
+import EmptyLayout from '@/components/Layout/EmptyLayout';
 
 export async function getServerSideProps(context: any) {
   const pageId = context?.params?.id ?? '';
@@ -54,9 +55,11 @@ function ConfidePage(props: any) {
   const tagsList = useMemo(() => {
     return pageInfo?.properties?.tags?.multi_select?.map((item, idx) => {
       return (
-        <span key={idx + 'idx'} style={{ zIndex: 1, color: item.color, marginRight: 4 }}>
-          {item.name}
-        </span>
+        <div key={idx + 'idx'} className='tw-mr-2'>
+          <span  style={{ zIndex: 1, color: item.color, marginRight: 4 }}>
+            {item.name}
+          </span>
+        </div>
       );
     });
   }, [pageInfo]);
@@ -64,6 +67,10 @@ function ConfidePage(props: any) {
   const createDate = useMemo(() => {
     return dayjs(pageInfo?.created_time ?? 0).unix();
   }, [pageInfo]);
+
+  const updatedAt = useMemo(() => {
+    return dayjs(pageInfo?.properties.updated_at.last_edited_time ?? 0).unix();
+  }, [pageInfo])
 
   if (respErr !== null) {
     return (
@@ -74,7 +81,7 @@ function ConfidePage(props: any) {
   }
 
   return (
-    <div className="tw-pt-8">
+    <div className="">
       <div className="tw-mb-4">
         <h2 className="tw-text-3xl tw-mb-4 tw-text-slate-700 tw-font-semibold">
           {pageTitle}
@@ -82,7 +89,8 @@ function ConfidePage(props: any) {
         <div className="tw-flex">{tagsList}</div>
         <div>
           <span className="tw-text-sm tw-gray-700">
-            Ngày tạo: {dayjs(createDate * 1000).format('DD/MM/YYYY')}
+            Created at: {dayjs(createDate * 1000).format('DD/MM/YYYY')} {' - '}
+            Update_at: {dayjs(updatedAt * 1000).format('DD/MM/YYYY')}
           </span>
         </div>
       </div>
@@ -99,5 +107,5 @@ function ConfidePage(props: any) {
   );
 }
 
-ConfidePage.Layout = MainLayout;
+ConfidePage.Layout = EmptyLayout;
 export default ConfidePage;

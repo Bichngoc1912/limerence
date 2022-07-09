@@ -22,7 +22,7 @@ export type RouterNameType =
   | typeof ROUTER_NAME.DEV_DETAIL;
 
 export const ROUTER_PATH_NAME = {
-  [ROUTER_NAME.HOME]: '/',
+  [ROUTER_NAME.HOME]: '/confide',
   [ROUTER_NAME.ABOUT]: '/about',
   [ROUTER_NAME.BOOK]: '/book',
   [ROUTER_NAME.CHORE]: '/chore',

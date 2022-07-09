@@ -1,34 +1,54 @@
-import MainLayout from '@/components/Layout/MainLayout';
+import HomeLayout from '@/components/Layout/HomeLayout';
 import Image from 'next/image';
-import lazyImage from '@/assets/images/lazy-chore-page.jpeg';
+import CardItem from '@/components/cards/CartItem';
+import { getArticleList } from '@/services/api/getArticleList';
+import { ArticleListInterface } from '@/types/common';
 import { APP_CONFIGS } from '@/configs/app';
+import { useRouter } from 'next/router';
 
 export async function getServerSideProps() {
+  const reqParam = {
+    filter: {
+      and: [
+        {
+          property: 'tags',
+          multi_select: {
+            contains: '#chore',
+          },
+        },
+      ],
+    },
+  };
+
   return {
-    props: {},
+    props: {
+      ...(await getArticleList(reqParam)),
+    },
   };
 }
-function ChorePage() {
+function ChorePage(props: any) {
+  const data = props as ArticleListInterface;
+  const router = useRouter();
+  
+  const handleClickViewDetailChore = (id: string) => {
+    router.push(`/chore/${id}`);
+  };
+
+  const renderArticleList = props?.results?.map((item: any, idx: number) => {
+    return <CardItem key={idx} data={item} handleRedirectToDetail={handleClickViewDetailChore} />
+  })
+
   return (
-    <div className="tw-text-center tw-p-4">
-      <div style={{ width: '100%', height: 200 }} className="tw-relative tw-mb-4">
-        <Image
-          src={lazyImage}
-          layout="fill"
-          objectFit="inherit"
-          alt="img lazy chore page..."
-          placeholder="blur"
-          blurDataURL={APP_CONFIGS.BLUR_IMAGE_BASE64}
-        />
+    <div className="tw-block">
+      <div className='tw-mb-4'>
+        <span className='tw-text-blue-500 tw-font-semibold'> CHORE - Những điều nhỏ nhặt </span>
       </div>
-      <span>
-        Nơi lưu mấy cái quote linh tinh, mấy thứ hay hay mình vợt trên được trên internet
-      </span>{' '}
-      <br />
-      <span>Đang lười chưa có làm 😌</span>
+      <div className="sm:tw-grid tw-block lg:tw-grid-cols-3  sm:tw-grid-cols-2 sm:tw-gap-4">
+        {renderArticleList}
+      </div> 
     </div>
   );
 }
 
-ChorePage.Layout = MainLayout;
+ChorePage.Layout = HomeLayout;
 export default ChorePage;
