@@ -60,9 +60,12 @@ export function ThemeModeSelect(props: ThemeModeSelectPropsInterface) {
                     )}
                   >
                     <modeItem.icon
-                      className={clsx('tw-w-5 tw-h-5 tw-mr-2 tw-text-slate-400 dark:tw-text-slate-500', {
-                        'tw-text-sky-600 dark:tw-text-sky-600': selected,
-                      })}
+                      className={clsx(
+                        'tw-w-5 tw-h-5 tw-mr-2 tw-text-slate-400 dark:tw-text-slate-500',
+                        {
+                          'tw-text-sky-600 dark:tw-text-sky-600': selected,
+                        },
+                      )}
                     />
                     {modeItem.label}
                   </li>

@@ -55,9 +55,7 @@ function Sidebar(props: SidebarProps) {
         onClick={() => router.push(`${item.href}`)}
       >
         <Link href={item.href}>
-          <a
-            className={router.pathname === item.href ? 'dark:tw-text-sky-500' : ''}
-          >
+          <a className={router.pathname === item.href ? 'dark:tw-text-sky-500' : ''}>
             {item.name}
           </a>
         </Link>

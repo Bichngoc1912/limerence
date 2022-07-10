@@ -32,7 +32,7 @@ export const useThemeMode = () => {
   useIsomorphicLayoutEffect(() => {
     if (themeMode === THEME_MODE.SYSTEM) {
       localStorage.removeItem('theme');
-    } else if(themeMode === THEME_MODE.LIGHT || themeMode === THEME_MODE.DARK) {
+    } else if (themeMode === THEME_MODE.LIGHT || themeMode === THEME_MODE.DARK) {
       localStorage.theme = themeMode;
     }
 

@@ -33,38 +33,41 @@ function Header(props: HeaderProps) {
         id: 2,
         src: linkedinIcon,
         href: 'https://www.linkedin.com/in/bich-ngoc-b36929200/',
-      }
+      },
     ];
 
     return iconList;
   }, []);
 
-  const renderMediaSociaList = mediaSociaList.map(item => {
+  const renderMediaSociaList = mediaSociaList.map((item) => {
     return (
-      <div key={item.id} className="hover:tw-rounded-full hover:tw-bg-gray-300 hover:tw-cursor-pointer tw-w-8 h-8 tw-content-center tw-justify-center tw-flex">
+      <div
+        key={item.id}
+        className="hover:tw-rounded-full hover:tw-bg-gray-300 hover:tw-cursor-pointer tw-w-8 h-8 tw-content-center tw-justify-center tw-flex"
+      >
         <a
           href={item.href}
-          className="tw-flex tw-justify-center" 
+          className="tw-flex tw-justify-center"
           target={'_blank'}
           rel="noreferrer"
         >
-        <div className="tw-flex tw-justify-center">
-          <Image
-            src={item.src}
-            width={20}
-            height={20}
-            alt="facebook icon"
-            objectFit="contain"
-          />
-        </div>
-      </a>
-    </div>
-    )
-  })
+          <div className="tw-flex tw-justify-center">
+            <Image
+              src={item.src}
+              width={20}
+              height={20}
+              alt="facebook icon"
+              objectFit="contain"
+            />
+          </div>
+        </a>
+      </div>
+    );
+  });
 
   const handleClickMenuIcon = () => {
     setIsOpenSidebar(!isOpenSidebar);
-  }
+  };
 
   return (
     <div className="tw-h-16 tw-border-b tw-border-gray-300 dark:tw-border-gray-500 tw-z-20 tw-w-full tw-bg-gray-50 dark:tw-bg-slate-700 tw-flex tw-justify-center tw-items-center tw-sticky tw-top-0">
