@@ -46,7 +46,7 @@ function HomePage(props: any) {
   });
 
   return (
-    <div className="tw-block">
+    <div className="tw-block dark:tw-bg-slate-800">
       <div className="tw-mb-4">
         <span className="tw-text-blue-500 tw-font-semibold">
           {' '}

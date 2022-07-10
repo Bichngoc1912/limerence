@@ -14,12 +14,12 @@ function HomePage() {
       <div className="tw-flex tw-items-center tw-mb-8">
         <Image src={handIcon} width={60} height={60} alt="hand icon ..." />
 
-        <p className="tw-ml-8 tw-text-lg tw-text-slate-700 tw-font-semibold">
+        <p className="tw-ml-8 tw-text-lg tw-text-slate-700 tw-font-semibold dark:tw-text-slate-400">
           Hi! Ngày hôm nay của bạn ổn chứ? Mình hy vọng bạn ổn 😄
         </p>
       </div>
       <div>
-        <p className="tw-text-slate-700">
+        <p className="tw-text-slate-700 dark:tw-text-slate-400">
           Phía trên là một trong số những tấm hình mình thích nhất, cũng là nơi lưu giữ
           khá nhiều kỉ niệm của mình tại Đà Lạt. Bạn thấy nó đẹp chứ, buổi chiều hôm đó là
           buổi chiều cuối cùng, giây phút của sự chia ly của lời nói <b>tạm biệt</b>. Có
@@ -28,7 +28,7 @@ function HomePage() {
           mình hết rồi. Ai rồi cũng phải tiến tới tương lai, không ai sống mãi trong hồi
           ức. <br /> <br />
           <div className="tw-p-6 tw-border-l-2 tw-border-black tw-shadow-inner tw-shadow-xl tw-mb-1">
-            <span className="tw-text-sky-600">
+            <span className="tw-text-sky-600 dark:tw-text-sky-500">
               <i>
                 {`" `}
                 Nhà tù lớn nhất trên thế giới là trái tim của bạn. Nếu bạn không thể thoát
@@ -59,6 +59,18 @@ function HomePage() {
           đánh dấu những bước đi của mình trên con đường trưởng thành, hơi tiếc vì quá
           trình quan trọng nhất và vui nhất thì mình lại chẳng có gì lưu lại cả. Nhưng mà
           bắt đầu từ bây giờ cũng chưa phải quá trễ :D. <br /> <br />
+          <span>
+            Mình trước đây không có thói quen ghi lại hay lưu giữ lại những thứ mà mình
+            trải qua, có chăng lâu lâu đăng được vài cái chung với bạn bè, còn của cá nhân
+            thì không hề có, toàn đăng mấy cái ba xàm ba láp, hay đơn giản chỉ là vì thích
+            một bài nhạc hay thích một câu qoute, thì up lên story, mà ba cái đó không để
+            lại dấu ấn, thời gian sau nhìn lại chả nhớ nữa :D. Nên bây giờ mình quyết định
+            lấy cái blog này lưu trữ lại mọi thứ, vui buồn hạnh phúc mình sẽ ghi lại hết,
+            có thể public lên hoặc không :v. Thời gian này mình còn biến cái zalo thành
+            nơi lưu hình, xàm xí trên đó, vì zalo không có bạn bè nhiều, lại còn có thể
+            đăng hình kèm nhạc, há há. Tiktok nữa chớ, video ngắn hihihi.
+            <br /> <br />
+          </span>
           <div className="tw-flex">
             <div className="tw-bg-sky-100 tw-mr-4 tw-px-2 tw-rounded-md">
               <span className="tw-text-sky-700 tw-font-bold"> keep_in_memory </span>

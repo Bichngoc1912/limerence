@@ -1,9 +1,12 @@
 ## CHANGELOG
 
+## v2.0.0 - 10/07/2022
+
 - [improve] Bổ sung prefix cho toàn bộ class trong source
 - [improve] Thay đổi bố cục của header
 - [feature] Thay đổi bố cục của HomeLayout, MainLayout, EmptyLayout  
 - [feature] Call api cho mục chore
+- [feature] Theem dark mode
 
 ## v1.2.3 - 04/07/2022
 

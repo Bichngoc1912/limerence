@@ -11,7 +11,7 @@ export default function MainLayout({ children }: LayoutPropsInterface) {
   const [isOpenSidebar, setIsOpenSidebar] = useState<boolean>(false);
 
   return (
-    <div className="tw-bg-gray-100 tw-min-h-screen tw-font-serif">
+    <div className="tw-bg-gray-100 tw-min-h-screen dark:tw-bg-slate-800 tw-min-h-screen tw-font-serif">
       <Header
         isOpenSidebar={isOpenSidebar}
         setIsOpenSidebar={() => setIsOpenSidebar(!isOpenSidebar)}

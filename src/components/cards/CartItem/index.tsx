@@ -2,26 +2,14 @@ import bookImage from '@/assets/images/bg-content-page.jpg';
 import Image from 'next/image';
 import { CardItemProps } from './types';
 import dayjs from 'dayjs';
-import { useRouter } from 'next/router';
 import { APP_CONFIGS } from '@/configs/app';
-import Tags from '@/components/Tags';
-import { generateBookDetailRouter } from '@/services/bussiness/router/generateRouter';
 
 function CardItem(props: CardItemProps) {
-  const router = useRouter();
-
   const { data, handleRedirectToDetail } = props;
   const currDate = Date.now();
   const converCurrDate = dayjs(currDate).format('DD/MM/YYYY');
   const dateCreate = dayjs(data?.properties?.time?.created_time ?? 0).unix();
   const updatedAt = dayjs(data?.properties?.updated_at?.last_edited_time ?? 0).unix();
-
-  const handleClickViewDetailBook = (id: string) => {
-    const asPath = generateBookDetailRouter({ id: id })?.asPath;
-    if (asPath) {
-      router.push(asPath);
-    }
-  };
 
   return (
     <div
@@ -49,11 +37,11 @@ function CardItem(props: CardItemProps) {
         />
       </div>
       <div className="tw-p-4 ">
-        <span className="tw-text-lg tw-text-slate-700 tw-font-semibold">
+        <span className="tw-text-lg tw-text-slate-700 tw-font-semibold dark:tw-text-slate-400">
           {data?.properties?.title?.rich_text[0]?.plain_text ?? ''}
         </span>{' '}
         <br />
-        <span className="tw-text-xs tw-text-slate-600">
+        <span className="tw-text-xs tw-text-slate-600 dark:tw-text-slate-500">
           Created at: {dayjs(dateCreate * 1000).format('DD/MM/YYYY') ?? converCurrDate} -
           Updated at: {dayjs(updatedAt * 1000).format('DD/MM/YYYY') ?? converCurrDate}
         </span>{' '}

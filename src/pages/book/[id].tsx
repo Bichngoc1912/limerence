@@ -95,11 +95,11 @@ function BookDetailPage(props: any) {
   return (
     <div className="tw-mt-4">
       <div className="tw-py-4 tw-pt-0 tw-px-8">
-        <span className="tw-text-3xl tw-text-slate-700 tw-font-semibold">
+        <span className="tw-text-3xl tw-text-slate-700 tw-font-semibold dark:tw-text-slate-400">
           {pageTitle}
         </span>{' '}
         <br />
-        <span className="tw-text-sm tw-text-slate-800">
+        <span className="tw-text-sm tw-text-slate-800  dark:tw-text-slate-500">
           Created at: {createDateConv ?? currDateInner}
           {' - '}
           Updated at: {updatedAtConv ?? currDateInner}

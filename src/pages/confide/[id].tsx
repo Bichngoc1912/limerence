@@ -83,12 +83,12 @@ function ConfidePage(props: any) {
   return (
     <div className="">
       <div className="tw-mb-4">
-        <h2 className="tw-text-3xl tw-mb-4 tw-text-slate-700 tw-font-semibold">
+        <h2 className="tw-text-3xl dark:tw-text-slate-400 tw-mb-4 tw-text-slate-700 tw-font-semibold">
           {pageTitle}
         </h2>
         <div className="tw-flex">{tagsList}</div>
         <div>
-          <span className="tw-text-sm tw-gray-700">
+          <span className="tw-text-sm tw-gray-700 dark:tw-text-slate-500">
             Created at: {dayjs(createDate * 1000).format('DD/MM/YYYY')} {' - '}
             Update_at: {dayjs(updatedAt * 1000).format('DD/MM/YYYY')}
           </span>

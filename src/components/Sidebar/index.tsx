@@ -51,14 +51,12 @@ function Sidebar(props: SidebarProps) {
     return (
       <div
         key={item.id}
-        className="tw-pl-1 tw-pr-1 tw-h-8 tw-flex tw-items-center hover:tw-bg-gray-100 hover:tw-cursor-pointer tw-w-full tw-text-sm md:tw-text-base md:tw-pl-4 md:tw-pr-4 tw-text-gray-900"
+        className="tw-pl-1 tw-pr-1 tw-h-8 tw-flex tw-items-center hover:tw-bg-gray-100 hover:tw-cursor-pointer tw-w-full tw-text-sm md:tw-text-base md:tw-pl-4 md:tw-pr-4 dark:tw-text-slate-300 tw-text-gray-900 dark:hover:tw-bg-slate-500 "
         onClick={() => router.push(`${item.href}`)}
       >
         <Link href={item.href}>
           <a
-            style={{
-              color: router.pathname === item.href ? '#3B82F6' : 'inherit',
-            }}
+            className={router.pathname === item.href ? 'dark:tw-text-sky-500' : ''}
           >
             {item.name}
           </a>
@@ -68,7 +66,7 @@ function Sidebar(props: SidebarProps) {
   });
 
   return (
-    <div className="tw-transition-all tw-shadow-xl tw-fixed tw-bg-gray-50 tw-w-80 tw-h-screen justify-between items-center tw-z-50 tw-top-0 tw-right-0 tw-border-l">
+    <div className="dark:tw-text-slate-400 dark:tw-bg-slate-700 tw-transition-all tw-shadow-xl tw-fixed tw-bg-gray-50 tw-w-80 tw-h-screen justify-between items-center tw-z-50 tw-top-0 tw-right-0 tw-border-l dark:tw-border-gray-500">
       <div
         className="tw-h-16 tw-flex tw-justify-end tw-p-8 tw-items-center hover:tw-cursor-pointer"
         onClick={() => setIsOpenSidebar(!isOpenSidebar)}

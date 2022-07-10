@@ -1,4 +1,4 @@
-import MainLayout from '@/components/Layout/MainLayout';
+import EmptyLayout from '@/components/Layout/EmptyLayout';
 import ConfideContentSkeleton from '@/components/ConfideContentSkeleton';
 import React, { useState, useMemo } from 'react';
 import { useRouter } from 'next/router';
@@ -68,10 +68,6 @@ function DevDetailPage(props: any) {
     return dayjs(currDate).format('DD/MM/YYYY');
   }, [currDate]);
 
-  const handleClickBack = () => {
-    return router.back();
-  };
-
   if (respErr !== null) {
     return (
       <div className="pt-8">
@@ -82,15 +78,12 @@ function DevDetailPage(props: any) {
 
   return (
     <div>
-      <div className="tw-flex tw-justify-start tw-px-8 tw-pt-4">
-        <button onClick={() => handleClickBack()}>Quay lại</button>
-      </div>
       <div className="tw-py-4 tw-px-8">
-        <span className="tw-text-3xl tw-text-slate-700 tw-font-semibold">
+        <span className="tw-text-3xl tw-text-slate-700  dark:tw-text-slate-400  tw-font-semibold">
           {pageTitle}
         </span>{' '}
         <br />
-        <span className="tw-text-sm tw-text-slate-800">
+        <span className="tw-text-sm tw-text-slate-800 dark:tw-text-slate-500 ">
           Ngày tạo: {createDateConv ?? currDateInner}{' '}
         </span>{' '}
         <br />
@@ -116,5 +109,5 @@ function DevDetailPage(props: any) {
   );
 }
 
-DevDetailPage.Layout = MainLayout;
+DevDetailPage.Layout = EmptyLayout;
 export default DevDetailPage;

@@ -8,7 +8,7 @@ export const renderContentConfidePage = (type: string, dataRender: ResultInterfa
     case 'image':
       return (
         <div className="tw-mb-4">
-          <div className="tw-bg-gray-100 tw-overflow-hidden">
+          <div className="tw-bg-gray-100 dark:tw-bg-slate-800 tw-overflow-hidden">
             <Image
               width={900}
               height={450}
@@ -27,7 +27,7 @@ export const renderContentConfidePage = (type: string, dataRender: ResultInterfa
     case 'paragraph':
       return (
         <div className="tw-px-4 tw-flex tw-items-center tw-mb-4">
-          <p className="tw-text-slate-800">
+          <p className="tw-text-slate-800 dark:tw-text-slate-400">
             {dataRender.paragraph?.rich_text?.map((item, idx) => {
               return (
                 <span
@@ -47,7 +47,7 @@ export const renderContentConfidePage = (type: string, dataRender: ResultInterfa
       );
     case 'bulleted_list_item':
       return (
-        <ul className="tw-text-slate-800 tw-mx-16 tw-list-disc">
+        <ul className="tw-text-slate-800 dark:tw-text-slate-400 tw-mx-16 tw-list-disc">
           {dataRender.bulleted_list_item?.rich_text?.map((item, idx) => {
             return <li key={idx + 'k'}>{item.plain_text}</li>;
           })}{' '}
