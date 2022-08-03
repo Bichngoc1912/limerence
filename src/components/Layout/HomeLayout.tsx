@@ -17,7 +17,7 @@ export default function HomeLayout({ children }: LayoutPropsInterface) {
   const [isOpenSidebar, setIsOpenSidebar] = useState<boolean>(false);
 
   return (
-    <div className=" tw-min-h-screen tw-bg-gray-100 dark:tw-bg-slate-800 tw-font-serif tw-relative tw-h-screen">
+    <div className=" tw-min-h-screen tw-bg-gray-100 dark:tw-bg-slate-800 tw-font- tw-relative tw-h-screen">
       <Header isOpenSidebar={isOpenSidebar} setIsOpenSidebar={setIsOpenSidebar} />
       <div className=" tw-bg-gray-100 dark:tw-bg-slate-800">
         <div className="sm:tw-grid tw-block tw-my-8 tw-mx-auto xl:tw-max-w-6xl lg:tw-max-w-4xl sm:tw-max-w-2xl tw-max-w-sm tw-grid-cols-48">

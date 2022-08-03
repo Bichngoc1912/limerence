@@ -16,11 +16,6 @@ const themeModeList = [
     label: 'Tối',
     icon: MoonIcon,
   },
-  {
-    value: THEME_MODE.SYSTEM,
-    label: 'Hệ thống',
-    icon: DesktopComputerIcon,
-  },
 ];
 
 export function ThemeModeSelect(props: ThemeModeSelectPropsInterface) {
@@ -51,7 +46,7 @@ export function ThemeModeSelect(props: ThemeModeSelectPropsInterface) {
                 {({ active, selected }) => (
                   <li
                     className={clsx(
-                      'tw-text-sm tw-py-1.5 tw-px-3 tw-flex tw-items-center tw-cursor-pointer',
+                      'tw-text-sm tw-py-1.5 tw-px-3 tw-flex tw-items-center tw-cursor-pointer  dark:tw-text-slate-200',
                       {
                         'tw-text-sky-600': selected,
                         'tw-bg-sky-50': selected && active,
@@ -61,9 +56,9 @@ export function ThemeModeSelect(props: ThemeModeSelectPropsInterface) {
                   >
                     <modeItem.icon
                       className={clsx(
-                        'tw-w-5 tw-h-5 tw-mr-2 tw-text-slate-400 dark:tw-text-slate-500',
+                        'tw-w-5 tw-h-5 tw-mr-2 tw-text-slate-400 dark:tw-text-slate-400',
                         {
-                          'tw-text-sky-600 dark:tw-text-sky-600': selected,
+                          'tw-text-sky-600 dark:tw-text-sky-500': selected,
                         },
                       )}
                     />

@@ -19,3 +19,7 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.tw-home-banner span {
+  width: 100% !important;
+}

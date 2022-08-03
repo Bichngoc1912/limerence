@@ -1,5 +1,11 @@
 ## CHANGELOG
 
+## v2.0.1 - 03/08/2022
+
+- [improve] Đổi lại font chữ từ `ui-serif` sang `opens-sans` 
+- [improve] Đổi lại màu chữ của model change theme sáng hơn
+- [bug] Size hình tại home layout sai
+
 ## v2.0.0 - 10/07/2022
 
 - [improve] Bổ sung prefix cho toàn bộ class trong source

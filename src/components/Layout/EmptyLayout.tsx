@@ -8,7 +8,7 @@ function EmptyLayout({ children }: LayoutPropsInterface) {
   const [isOpenSidebar, setIsOpenSidebar] = useState<boolean>(false);
 
   return (
-    <div className="tw-bg-gray-100 tw-min-h-screen tw-font-serif dark:tw-bg-slate-800">
+    <div className="tw-bg-gray-100 tw-min-h-screen tw-font-ms-madi dark:tw-bg-slate-800">
       <Header
         setIsOpenSidebar={() => setIsOpenSidebar(!isOpenSidebar)}
         isOpenSidebar={isOpenSidebar}

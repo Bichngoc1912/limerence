@@ -11,12 +11,12 @@ export default function MainLayout({ children }: LayoutPropsInterface) {
   const [isOpenSidebar, setIsOpenSidebar] = useState<boolean>(false);
 
   return (
-    <div className="tw-bg-gray-100 tw-min-h-screen dark:tw-bg-slate-800 tw-min-h-screen tw-font-serif">
+    <div className="tw-bg-gray-100 tw-min-h-screen dark:tw-bg-slate-800 tw-min-h-screen tw-font-ms-madi">
       <Header
         isOpenSidebar={isOpenSidebar}
         setIsOpenSidebar={() => setIsOpenSidebar(!isOpenSidebar)}
       />
-      <div className="tw-my-8 tw-mx-auto xl:tw-max-w-6xl lg:tw-max-w-4xl sm:tw-max-w-2xl tw-max-w-sm">
+      <div className="tw-my-8 tw-mx-auto xl:tw-max-w-6xl lg:tw-max-w-4xl tw-w-full sm:tw-max-w-2xl tw-max-w-sm tw-home-banner">
         <Image
           src={bgateImage}
           alt="Home img ...."

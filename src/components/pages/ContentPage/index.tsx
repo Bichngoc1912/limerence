@@ -49,7 +49,11 @@ export const renderContentConfidePage = (type: string, dataRender: ResultInterfa
       return (
         <ul className="tw-text-slate-800 dark:tw-text-slate-400 tw-mx-16 tw-list-disc">
           {dataRender.bulleted_list_item?.rich_text?.map((item, idx) => {
-            return <li key={idx + 'k'} style={{ wordBreak: 'break-word' }}>{item.plain_text}</li>;
+            return (
+              <li key={idx + 'k'} style={{ wordBreak: 'break-word' }}>
+                {item.plain_text}
+              </li>
+            );
           })}{' '}
         </ul>
       );
