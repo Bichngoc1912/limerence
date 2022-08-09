@@ -17,7 +17,7 @@ module.exports = {
       }
     },
     fontFamily: {
-      'ms-madi': ['"Open Sans"', 'cursive'],
+      'ms-madi': ['"Noto Serif"', 'serif'],
       'sans': ['ui-sans-serif', 'system-ui'],
       'serif': ['ui-serif', 'Georgia'],
       'mono': ['ui-monospace', 'SFMono-Regular'],
