@@ -22,7 +22,7 @@ function Header(props: HeaderProps) {
       {
         id: 0,
         src: facebookIcon,
-        href: 'https://www.facebook.com/profile.php?id=100039248978194',
+        href: 'https://www.facebook.com/ngot1912/',
       },
       {
         id: 1,

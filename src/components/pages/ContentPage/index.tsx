@@ -26,7 +26,7 @@ export const renderContentConfidePage = (type: string, dataRender: ResultInterfa
       );
     case 'paragraph':
       return (
-        <div className="tw-px-4 tw-flex tw-items-center tw-mb-4">
+        <div className="tw-flex tw-items-center tw-mb-4">
           <p className="tw-text-slate-800 dark:tw-text-slate-400">
             {dataRender.paragraph?.rich_text?.map((item, idx) => {
               return (

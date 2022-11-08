@@ -27,6 +27,7 @@ function HomePage() {
           câu trả lời là <b>có</b>, buồn chứ. Nhưng mà tính đến thời điểm hiện tại thì
           mình hết rồi. Ai rồi cũng phải tiến tới tương lai, không ai sống mãi trong hồi
           ức. <br /> <br />
+          </p>
           <div className="tw-p-6 tw-border-l-2 tw-border-black tw-shadow-inner tw-shadow-xl tw-mb-1">
             <span className="tw-text-sky-600 dark:tw-text-sky-500">
               <i>
@@ -38,6 +39,7 @@ function HomePage() {
             </span>
           </div>
           <br />
+          <p className="tw-text-slate-700 dark:tw-text-slate-400">
           Đây cũng là một câu nói mà mình khá là thích, đại ý chính là mọi thứ trên đời
           này đều do bạn quyết định, bạn cảm thấy nó là tốt thì nó chính là tốt, bạn thấy
           nó xấu thì nó là xấu, tâm trạng của bạn như thế nào cũng là do bạn quyết định.
@@ -71,17 +73,20 @@ function HomePage() {
             đăng hình kèm nhạc, há há. Tiktok nữa chớ, video ngắn hihihi.
             <br /> <br />
           </span>
-          <div className="tw-flex">
-            <div className="tw-bg-sky-100 tw-mr-4 tw-px-2 tw-rounded-md">
-              <span className="tw-text-sky-700 tw-font-bold"> keep_in_memory </span>
-            </div>
-            <div className="tw-bg-fuchsia-100 tw-mr-4 tw-px-2 tw-rounded-md">
-              <span className="tw-text-fuchsia-700 tw-font-bold"> respect_all </span>
-            </div>
-          </div>
-          <br />
-          21:00 p.m | 09-07-2022 |
         </p>
+      </div>
+
+      <div className="tw-flex tw-mb-8">
+        <div className="tw-bg-sky-100 tw-mr-4 tw-px-2 tw-rounded-md">
+          <span className="tw-text-sky-700 tw-font-bold"> keep in memory </span>
+        </div>
+        <div className="tw-bg-fuchsia-100 tw-mr-4 tw-px-2 tw-rounded-md">
+          <span className="tw-text-fuchsia-700 tw-font-bold"> respect all </span>
+        </div>
+      </div>
+
+      <div>
+        <p className="tw-text-slate-700 dark:tw-text-slate-400"> 21:00 p.m | 09-07-2022 |</p>
       </div>
     </div>
   );

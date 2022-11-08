@@ -1,5 +1,12 @@
 ## CHANGELOG
 
+## v2.1.0 - 08/11/2022
+
+- [chore] Đổi link facebook
+- [improve] Chỉnh lại space các page chi tiết 
+- [feature] Bổ sung check isShow một bài viết nào đó
+- [bug] Fix bug hydration in first render
+
 ## v2.0.1 - 03/08/2022
 
 - [improve] Đổi lại font chữ từ `ui-serif` sang `opens-sans` 

@@ -1,6 +1,5 @@
 import '@/styles/globals.css';
 import { AppPropsWithLayout } from '@/types/common';
-import { createEmotionCache } from '@/helpers/emotionCachedHelper';
 import NextNProgress from 'nextjs-progressbar';
 import EmptyLayout from '@/components/Layout/EmptyLayout';
 import Head from 'next/head';

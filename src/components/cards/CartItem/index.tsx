@@ -20,6 +20,7 @@ function CardItem(props: CardItemProps) {
         height: '100%',
         borderBottomLeftRadius: 10,
         borderBottomRightRadius: 10,
+        display: data.properties.show.checkbox ? 'default' : 'none'
       }}
     >
       <div
