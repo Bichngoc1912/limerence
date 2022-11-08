@@ -27,19 +27,19 @@ function HomePage() {
           câu trả lời là <b>có</b>, buồn chứ. Nhưng mà tính đến thời điểm hiện tại thì
           mình hết rồi. Ai rồi cũng phải tiến tới tương lai, không ai sống mãi trong hồi
           ức. <br /> <br />
-          </p>
-          <div className="tw-p-6 tw-border-l-2 tw-border-black tw-shadow-inner tw-shadow-xl tw-mb-1">
-            <span className="tw-text-sky-600 dark:tw-text-sky-500">
-              <i>
-                {`" `}
-                Nhà tù lớn nhất trên thế giới là trái tim của bạn. Nếu bạn không thể thoát
-                ra khỏi nỗi ám ảnh của chính mình, bạn sẽ là tù nhân ở khắp mọi nơi.
-                {` "`}
-              </i>
-            </span>
-          </div>
-          <br />
-          <p className="tw-text-slate-700 dark:tw-text-slate-400">
+        </p>
+        <div className="tw-p-6 tw-border-l-2 tw-border-black tw-shadow-inner tw-shadow-xl tw-mb-1">
+          <span className="tw-text-sky-600 dark:tw-text-sky-500">
+            <i>
+              {`" `}
+              Nhà tù lớn nhất trên thế giới là trái tim của bạn. Nếu bạn không thể thoát
+              ra khỏi nỗi ám ảnh của chính mình, bạn sẽ là tù nhân ở khắp mọi nơi.
+              {` "`}
+            </i>
+          </span>
+        </div>
+        <br />
+        <p className="tw-text-slate-700 dark:tw-text-slate-400">
           Đây cũng là một câu nói mà mình khá là thích, đại ý chính là mọi thứ trên đời
           này đều do bạn quyết định, bạn cảm thấy nó là tốt thì nó chính là tốt, bạn thấy
           nó xấu thì nó là xấu, tâm trạng của bạn như thế nào cũng là do bạn quyết định.
@@ -86,7 +86,10 @@ function HomePage() {
       </div>
 
       <div>
-        <p className="tw-text-slate-700 dark:tw-text-slate-400"> 21:00 p.m | 09-07-2022 |</p>
+        <p className="tw-text-slate-700 dark:tw-text-slate-400">
+          {' '}
+          21:00 p.m | 09-07-2022 |
+        </p>
       </div>
     </div>
   );
