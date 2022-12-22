@@ -9,11 +9,11 @@ export async function getServerSideProps() {
 }
 
 function HomePage() {
+
   return (
     <div className="tw-block lg:tw-grid-cols-3  sm:tw-grid-cols-2 sm:tw-gap-4">
       <div className="tw-flex tw-items-center tw-mb-8">
         <Image src={handIcon} width={60} height={60} alt="hand icon ..." />
-
         <p className="tw-ml-8 tw-text-lg tw-text-slate-700 tw-font-semibold dark:tw-text-slate-400">
           Hi! Ngày hôm nay của bạn ổn chứ? Mình hy vọng bạn ổn 😄
         </p>

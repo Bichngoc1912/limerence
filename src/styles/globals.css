@@ -23,3 +23,7 @@ a {
 .tw-home-banner span {
   width: 100% !important;
 }
+
+.my-modal .css-i9fmh8-MuiBackdrop-root-MuiModal-backdrop{
+  background-color: #94A3B8;
+}

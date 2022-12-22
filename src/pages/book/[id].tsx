@@ -8,6 +8,9 @@ import { GetContentPageResponseInterface } from '@/services/api/getContentPage';
 import dayjs from 'dayjs';
 import { renderContentConfidePage } from '@/components/pages/ContentPage';
 import AlertError from '@/components/Alert/AlertError';
+import ModalImage from '@/components/ImageModal';
+import { useState } from 'react';
+import { ImageProps } from 'next/image';
 
 export async function getServerSideProps(context: any) {
   const pageId = context?.params?.id ?? '';
@@ -41,6 +44,14 @@ export async function getServerSideProps(context: any) {
 
 function BookDetailPage(props: any) {
   const { pageInfoResp, pageContentResp, respErr } = props;
+  const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
+  const [imgScr, setImgSrc] = useState<ImageProps['src']>('');
+  const handleOpenModal = (src: ImageProps['src']) => {
+    setImgSrc(src);
+    setIsOpenModal(true);
+  }
+  const handleCloseModal = () => setIsOpenModal(false);
+
   const pageInfo: GetPageInfoResponseInterface = useMemo(() => {
     return pageInfoResp;
   }, [pageInfoResp]);
@@ -111,11 +122,13 @@ function BookDetailPage(props: any) {
         {contentPageInfo?.results?.map((item, idx) => {
           return (
             <React.Fragment key={idx}>
-              {renderContentConfidePage(item.type, item)}
+              {renderContentConfidePage(item.type, item, handleOpenModal)}
             </React.Fragment>
           );
         })}
       </div>
+
+      <ModalImage handleClose={handleCloseModal} imgSrc={imgScr} isOpen={isOpenModal} />
     </div>
   );
 }

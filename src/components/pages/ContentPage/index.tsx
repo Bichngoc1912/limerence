@@ -3,12 +3,12 @@ import { APP_CONFIGS } from '@/configs/app';
 import Image from 'next/image';
 import bookImage from '@/assets/images/bg-content-page.jpg';
 
-export const renderContentConfidePage = (type: string, dataRender: ResultInterface) => {
+export const renderContentConfidePage = (type: string, dataRender: ResultInterface, handleClickImage: (src: string) => void) => {
   switch (type) {
     case 'image':
       return (
         <div className="tw-mb-4">
-          <div className="tw-bg-gray-100 dark:tw-bg-slate-800 tw-overflow-hidden">
+          <div className="tw-bg-gray-100 dark:tw-bg-slate-800 tw-overflow-hidden hover:tw-cursor-pointer">
             <Image
               width={900}
               height={450}
@@ -20,6 +20,7 @@ export const renderContentConfidePage = (type: string, dataRender: ResultInterfa
               objectFit="cover"
               alt="img..."
               className="tw-rounded-xl"
+              onClick={() => handleClickImage(dataRender?.image?.file?.url!)}
             />
           </div>
         </div>

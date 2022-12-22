@@ -1,5 +1,9 @@
 ## CHANGELOG
 
+## v2.2.0 - 22/12/2022
+
+- [feature] click show image 
+
 ## v2.1.0 - 08/11/2022
 
 - [chore] Đổi link facebook
