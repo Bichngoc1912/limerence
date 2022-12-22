@@ -48,7 +48,7 @@ function DevDetailPage(props: any) {
   const handleOpenModal = (src: ImageProps['src']) => {
     setImgSrc(src);
     setIsOpenModal(true);
-  }
+  };
   const handleCloseModal = () => setIsOpenModal(false);
 
   const pageInfo: GetPageInfoResponseInterface = useMemo(() => {
@@ -115,7 +115,7 @@ function DevDetailPage(props: any) {
           </React.Fragment>
         );
       })}
-      
+
       <ModalImage handleClose={handleCloseModal} imgSrc={imgScr} isOpen={isOpenModal} />
     </div>
   );

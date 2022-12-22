@@ -9,7 +9,6 @@ export async function getServerSideProps() {
 }
 
 function HomePage() {
-
   return (
     <div className="tw-block lg:tw-grid-cols-3  sm:tw-grid-cols-2 sm:tw-gap-4">
       <div className="tw-flex tw-items-center tw-mb-8">

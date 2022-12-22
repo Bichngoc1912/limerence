@@ -3,7 +3,11 @@ import { APP_CONFIGS } from '@/configs/app';
 import Image from 'next/image';
 import bookImage from '@/assets/images/bg-content-page.jpg';
 
-export const renderContentConfidePage = (type: string, dataRender: ResultInterface, handleClickImage: (src: string) => void) => {
+export const renderContentConfidePage = (
+  type: string,
+  dataRender: ResultInterface,
+  handleClickImage: (src: string) => void,
+) => {
   switch (type) {
     case 'image':
       return (

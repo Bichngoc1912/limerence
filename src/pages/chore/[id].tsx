@@ -49,7 +49,7 @@ function BookDetailPage(props: any) {
   const handleOpenModal = (src: ImageProps['src']) => {
     setImgSrc(src);
     setIsOpenModal(true);
-  }
+  };
   const handleCloseModal = () => setIsOpenModal(false);
 
   const pageInfo: GetPageInfoResponseInterface = useMemo(() => {

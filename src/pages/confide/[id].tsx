@@ -48,7 +48,7 @@ function ConfidePage(props: any) {
   const handleOpenModal = (src: ImageProps['src']) => {
     setImgSrc(src);
     setIsOpenModal(true);
-  }
+  };
   const handleCloseModal = () => setIsOpenModal(false);
 
   const pageInfo: GetPageInfoResponseInterface = useMemo(() => {
@@ -114,7 +114,7 @@ function ConfidePage(props: any) {
           );
         })}
       </div>
-      
+
       <ModalImage handleClose={handleCloseModal} imgSrc={imgScr} isOpen={isOpenModal} />
     </div>
   );
