@@ -87,7 +87,7 @@ function HomePage() {
       <div>
         <p className="tw-text-slate-700 dark:tw-text-slate-400">
           {' '}
-          21:00 p.m | 09-07-2022 |
+          21:00 p.m | 09-07-2022 | tui lôi nó ra test sonar thôi
         </p>
       </div>
     </div>
